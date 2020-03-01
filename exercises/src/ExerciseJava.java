@@ -12,13 +12,18 @@ public class ExerciseJava {
 //        System.out.println(Arrays.deepToString(squarePatch(1)));
 //        System.out.println(Arrays.deepToString(squarePatch(0)));
 
-        System.out.println(isValidHexCode("#CD5C5C"));
-        System.out.println(isValidHexCode("#EAECEE"));
-        System.out.println(isValidHexCode("#eaecee"));
-        System.out.println(isValidHexCode("#CD5C58C"));
-        System.out.println(isValidHexCode("#CD5C5Z"));
-        System.out.println(isValidHexCode("#CD5C&C"));
-        System.out.println(isValidHexCode("CD5C5C"));
+//        System.out.println(isValidHexCode("#CD5C5C"));
+//        System.out.println(isValidHexCode("#EAECEE"));
+//        System.out.println(isValidHexCode("#eaecee"));
+//        System.out.println(isValidHexCode("#CD5C58C"));
+//        System.out.println(isValidHexCode("#CD5C5Z"));
+//        System.out.println(isValidHexCode("#CD5C&C"));
+//        System.out.println(isValidHexCode("CD5C5C"));
+
+        System.out.println(highLow("1 2 3 4 5"));
+        System.out.println(highLow("1 2 -3 4 5"));
+        System.out.println(highLow("1 9 3 4 -5"));
+        System.out.println(highLow("13"));
 
     }
 
@@ -59,9 +64,8 @@ public class ExerciseJava {
     //    3/1/2020 - light exercise edabit.com **************
 //  Problem: Valid Hex Code
 //  task: Create a function that determines whether a string is a valid hex code.
-//
-//A hex code must begin with a pound key # and is exactly 6 characters in length. Each character must be a digit
-// from 0-9 or an alphabetic character from A-F. All alphabetic characters may be uppercase or lowercase.
+//     A hex code must begin with a pound key # and is exactly 6 characters in length. Each character must be a digit
+//     from 0-9 or an alphabetic character from A-F. All alphabetic characters may be uppercase or lowercase.
 //  site: https://edabit.com/challenge/9zBJYnBekqAo52zEp
     private static Boolean isValidHexCode(String code){
         if (code.length() != 7){
@@ -88,5 +92,31 @@ public class ExerciseJava {
         return true;
     }
 
+    //  Problem: Return the Highest and Lowest Numbers
+//  task: Create a method that accepts a string of space separated numbers and returns the highest and lowest number (as a string).
+//  site: https://edabit.com/challenge/iaCSbqngin2AXriyB
+
+    private static String highLow(String numString){
+        String returnString = "";
+        int high = 0;
+        int low = 0;
+        String[] splitString = numString.split(" ");
+        for (int i = 0; i< splitString.length;i++){
+            if (i == 0){
+                high = Integer.parseInt(splitString[i]);
+                low = Integer.parseInt(splitString[i]);
+            }else{
+                if (Integer.parseInt(splitString[i]) > high){
+                    high =Integer.parseInt(splitString[i]);
+                }else if (Integer.parseInt(splitString[i]) < low){
+                    low = Integer.parseInt(splitString[i]);
+                }
+            }
+        }
+
+        returnString = String.join(" ", Integer.toString(high), Integer.toString(low));
+
+        return returnString;
+    }
 
 }
