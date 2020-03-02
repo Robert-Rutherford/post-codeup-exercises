@@ -150,7 +150,9 @@ public class ExerciseJava {
 //If the length of the string is less than two, return "Incompatible.".
 //If the first and last characters are the same, return "Two's a pair.".
 //  site: https://edabit.com/challenge/c52kNwPuWo5kp9x4H
-
+    private static String flipEndChars(String input){
+        return " ";
+    }
 
 
 }
