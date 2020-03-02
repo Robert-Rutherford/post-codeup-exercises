@@ -119,4 +119,38 @@ public class ExerciseJava {
         return returnString;
     }
 
+    //  Problem: Recursion: Array Sum
+//  task: Write a function that finds the sum of an array. Make your function recursive.
+//  site: https://edabit.com/challenge/hf2THAoQRQbAx2jc9
+    private static int sum(int[] numArray){
+        int total = 0;
+
+        return total;
+    }
+
+    //    3/3/2020 - light exercise edabit.com **************
+//  Problem: Simulate the Game "Rock, Paper, Scissors"
+//  task: Create a function which simulates the game "rock, paper, scissors". The function takes the input of both players (rock, paper or scissors), first parameter from first player, second from second player. The function returns the result as such:
+//
+//"Player 1 wins"
+//"Player 2 wins"
+//"TIE" (if both inputs are the same)
+//The rules of rock, paper, scissors, if not known:
+//
+//Both players have to say either "rock", "paper" or "scissors" at the same time.
+//Rock beats scissors, paper beats rock, scissors beat paper.
+//  site: https://edabit.com/challenge/3S8XppR6Yf5mXPxij
+    private static String rps(String player1,String player2){
+        return " ";
+    }
+
+//  Problem: Switcharoo
+//  task: Create a function that takes a string and returns a new string with its first and last characters swapped, except under three conditions:
+//
+//If the length of the string is less than two, return "Incompatible.".
+//If the first and last characters are the same, return "Two's a pair.".
+//  site: https://edabit.com/challenge/c52kNwPuWo5kp9x4H
+
+
+
 }
