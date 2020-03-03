@@ -25,12 +25,16 @@ public class ExerciseJava {
 //        System.out.println(highLow("1 9 3 4 -5"));
 //        System.out.println(highLow("13"));
 
-        System.out.println(rps("rock", "paper"));
-        System.out.println(rps("paper", "rock"));
-        System.out.println(rps("paper", "scissors"));
-        System.out.println(rps("scissors", "scissors"));
-        System.out.println(rps("scissors", "paper"));
+//        System.out.println(rps("rock", "paper"));
+//        System.out.println(rps("paper", "rock"));
+//        System.out.println(rps("paper", "scissors"));
+//        System.out.println(rps("scissors", "scissors"));
+//        System.out.println(rps("scissors", "paper"));
 
+        System.out.println(flipEndChars("Cat, dog, and mouse."));
+        System.out.println(flipEndChars("ada"));
+        System.out.println(flipEndChars("Ada"));
+        System.out.println(flipEndChars("z"));
     }
 
 
@@ -179,7 +183,13 @@ public class ExerciseJava {
 //If the first and last characters are the same, return "Two's a pair.".
 //  site: https://edabit.com/challenge/c52kNwPuWo5kp9x4H
     private static String flipEndChars(String input){
-        return " ";
+        if (input.length() < 2){
+            return "Incompatible.";
+        }
+        if (input.charAt(0) == input.charAt(input.length()-1)){
+            return "Two's a pair.";
+        }
+        return input.charAt(input.length() - 1) + input.substring(1, input.length() - 1) + input.charAt(0);
     }
 
 
