@@ -20,10 +20,16 @@ public class ExerciseJava {
 //        System.out.println(isValidHexCode("#CD5C&C"));
 //        System.out.println(isValidHexCode("CD5C5C"));
 
-        System.out.println(highLow("1 2 3 4 5"));
-        System.out.println(highLow("1 2 -3 4 5"));
-        System.out.println(highLow("1 9 3 4 -5"));
-        System.out.println(highLow("13"));
+//        System.out.println(highLow("1 2 3 4 5"));
+//        System.out.println(highLow("1 2 -3 4 5"));
+//        System.out.println(highLow("1 9 3 4 -5"));
+//        System.out.println(highLow("13"));
+
+        System.out.println(rps("rock", "paper"));
+        System.out.println(rps("paper", "rock"));
+        System.out.println(rps("paper", "scissors"));
+        System.out.println(rps("scissors", "scissors"));
+        System.out.println(rps("scissors", "paper"));
 
     }
 
@@ -141,6 +147,28 @@ public class ExerciseJava {
 //Rock beats scissors, paper beats rock, scissors beat paper.
 //  site: https://edabit.com/challenge/3S8XppR6Yf5mXPxij
     private static String rps(String player1,String player2){
+        if (player1.equalsIgnoreCase(player2)){
+            return "TIE";
+        }
+        if (player1.equalsIgnoreCase("rock")){
+            if (player2.equalsIgnoreCase("paper")){
+                return "Player 2 wins";
+            }else if (player2.equalsIgnoreCase("scissors")){
+                return "Player 1 wins";
+        }
+        }else if (player1.equalsIgnoreCase("paper")){
+                if (player2.equalsIgnoreCase("scissors")){
+                    return "Player 2 wins";
+                }else if (player2.equalsIgnoreCase("rock")){
+                    return "Player 1 wins";
+                }
+        }else if (player1.equalsIgnoreCase("scissors")){
+                if (player2.equalsIgnoreCase("rock")){
+                    return "Player 2 wins";
+                }else if (player2.equalsIgnoreCase("paper")){
+                    return "Player 1 wins";
+                }
+        }
         return " ";
     }
 
