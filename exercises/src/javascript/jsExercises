@@ -1,0 +1,6 @@
+"use strict";
+
+//site https://edabit.com/challenge/3ZtykTsx3GSoPHyBb
+//Problem: Tower of Hanoi
+//Create a function that takes a number discs as an argument and returns the minimum amount of steps needed to complete the game.
+//
