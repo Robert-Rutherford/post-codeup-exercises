@@ -12,3 +12,16 @@ function arrayOfMultiples(num,length){
     }
     return fullArray;
 }
+
+//site https://edabit.com/challenge/tmnCStcrkdWbreKP5
+//Problem: Get Sum of People's Budget
+//Create the function that takes an array with objects and returns the sum of people's budgets.
+//
+function getBudgets(objArray){
+    let total = 0;
+    for(let i = 0; i< objArray.length; i++){
+        total += objArray[i].budget;
+    }
+
+    return total;
+}
