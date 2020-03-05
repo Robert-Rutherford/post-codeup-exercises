@@ -25,3 +25,14 @@ function getBudgets(objArray){
 
     return total;
 }
+
+//site https://edabit.com/challenge/moK78CirzYbqk6g3z
+//Problem: ReverseAndNot
+//Write a function that takes an integer i and returns an integer with the integer backwards followed by the original integer.
+//
+function reverseAndNot(num){
+let strNum = num.toString();
+let numReverse = strNum.split("").reverse().join("");
+let returnStr = numReverse + strNum;
+return parseInt(returnStr);
+}
