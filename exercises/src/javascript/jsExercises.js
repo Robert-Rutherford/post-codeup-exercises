@@ -36,3 +36,13 @@ let numReverse = strNum.split("").reverse().join("");
 let returnStr = numReverse + strNum;
 return parseInt(returnStr);
 }
+//site https://edabit.com/challenge/4aaBNPnFMc3bzR7JR
+//Problem: Convert Key, Values in an Object to Array
+//Write a function that converts an object into an array of keys and values.
+//
+function objectToArray(obj){
+    return Object.keys(obj).map(function(key){
+        return [key, obj[key]];
+    });
+
+}
