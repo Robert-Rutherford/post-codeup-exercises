@@ -46,3 +46,16 @@ function objectToArray(obj){
     });
 
 }
+//site https://edabit.com/challenge/SAdqaWKRpjLfZnGKA
+//Problem: Get the Century
+//Create a function that takes in a year and returns the correct century.
+//
+function century(yearNum){
+    let centuryNum = 10;
+    if(yearNum% 100 == 0){
+        centuryNum = Math.floor(yearNum/100);
+    }else{
+        centuryNum = Math.floor(yearNum/100 + 1);
+    }
+    return centuryNum+"th century";
+}
