@@ -59,3 +59,26 @@ function century(yearNum){
     }
     return centuryNum+"th century";
 }
+
+//site https://edabit.com/challenge/AtoWYYC9THAH5HbS2
+//Problem: Basic Calculator
+//Create a function that takes two numbers and a mathematical operator + - / * and will perform a calculation with the given numbers.
+//
+function calculator(num1,operator,num2){
+    if(operator === "+"){
+        return num1 + num2;
+    }
+    if(operator === "-"){
+        return num1 - num2;
+    }
+    if(operator === "*"){
+        return num1 * num2;
+    }
+    if(operator === "/"){
+        if(num2 == 0){
+            return "Can't divide by 0!";
+        }
+        return num1/num2;
+    }
+    return "invalid operator";
+}
