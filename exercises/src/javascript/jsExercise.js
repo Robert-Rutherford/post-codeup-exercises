@@ -111,6 +111,22 @@ function oddishOrEvenish(num) {
 // 
 // In baseball statistics, innings are represented with a fractional part of .1 (1/3) or .2 (2/3) to represent the number of outs in an inning. A whole number or a number with a fractional part of .0 represents a full inning with three outs. Check the Resources tab for a deeper explanation.
 //
-function era(num1,num2) {
-    
+function era(er,ip) {
+    return (er/ip)*9;
 }
+
+//site https://edabit.com/challenge/Fev8jkLtDunP9wexv
+//Needle in a Hex String
+//Find the index of a string within a hex encoded string.
+//
+// You will be given a string which needs to be found in another string which has previously been translated into hex. You will need to return the first index of the needle within the hex encoded string.
+function firstIndex(hex, needle) {
+    let hexArray = hex.split(" ");
+    let needleIndex = needle.substring(0,1);
+
+}
+
+
+
+
+
