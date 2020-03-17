@@ -125,6 +125,18 @@ function firstIndex(hex, needle) {
     let needleIndex = needle.substring(0,1);
 
 }
+// site https://edabit.com/challenge/WMorR7e2z3AkoesJC
+// Straight Digital Numbers
+//In this challenge, you have to establish if the digits of a given number form a straight arithmetic sequence (either increasing or decreasing). A straight sequence has an equal step between every pair of digits.
+//
+// Given an integer n, implement a function that returns:
+//
+// "Not Straight" if n is lower than 100 or if its digits are not an arithmetic sequence.
+// "Trivial Straight" if n has a single repeating digit.
+// An integer being the step of the sequence if the n digits are a straight arithmetic sequence.
+function straightDigital(number) {
+
+}
 
 
 
