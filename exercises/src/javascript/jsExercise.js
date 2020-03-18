@@ -135,6 +135,27 @@ function firstIndex(hex, needle) {
 // "Trivial Straight" if n has a single repeating digit.
 // An integer being the step of the sequence if the n digits are a straight arithmetic sequence.
 function straightDigital(number) {
+    if(number < 100){
+        return "Not Straight";
+    }
+    var strNum = number.toString();
+    var numSplit = strNum.split("");
+    let straightArray = [];
+    for(let i = 0; i< (numSplit.length -1) ; i++ ){
+        straightArray.push(parseInt(numSplit[i+1]) - parseInt(numSplit[i]));
+    }
+
+    for (let i=0; i< (straightArray.length-1);i++){
+        if(straightArray[i] !== straightArray[i+1]){
+            return "Not Straight";
+        }
+    }
+
+    if (straightArray[0] === 0){
+        return "Trivial Straight";
+    }else {
+        return straightArray[0];
+    }
 
 }
 
