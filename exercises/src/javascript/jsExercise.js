@@ -123,7 +123,13 @@ function era(er,ip) {
 function firstIndex(hex, needle) {
     let hexArray = hex.split(" ");
     let needleIndex = needle.substring(0,1);
-
+    for (let i = 0; i<hexArray.length;i++){
+        let hexConvert = parseInt(hexArray[i],16);
+        if (needleIndex === String.fromCharCode(hexConvert)){
+            return i;
+        }
+    }
+    return 0;
 }
 // site https://edabit.com/challenge/WMorR7e2z3AkoesJC
 // Straight Digital Numbers
