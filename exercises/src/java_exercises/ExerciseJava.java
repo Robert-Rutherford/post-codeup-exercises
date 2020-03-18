@@ -33,10 +33,15 @@ public class ExerciseJava {
 //        System.out.println(rps("scissors", "scissors"));
 //        System.out.println(rps("scissors", "paper"));
 
-        System.out.println(flipEndChars("Cat, dog, and mouse."));
-        System.out.println(flipEndChars("ada"));
-        System.out.println(flipEndChars("Ada"));
-        System.out.println(flipEndChars("z"));
+//        System.out.println(flipEndChars("Cat, dog, and mouse."));
+//        System.out.println(flipEndChars("ada"));
+//        System.out.println(flipEndChars("Ada"));
+//        System.out.println(flipEndChars("z"));
+
+        System.out.println(atbash("apple"));
+        System.out.println(atbash("Hello world!"));
+        System.out.println(atbash("Christmas is the 25th of December"));
+
     }
 
 
@@ -192,6 +197,29 @@ public class ExerciseJava {
             return "Two's a pair.";
         }
         return input.charAt(input.length() - 1) + input.substring(1, input.length() - 1) + input.charAt(0);
+    }
+
+//    3/18 problems
+
+//  Problem: Atbash Cipher
+//  task: The Atbash cipher is an encryption method in which each letter of a word is replaced with its "mirror" letter in the alphabet: A <=> Z; B <=> Y; C <=> X; etc.
+//
+//Create a function that takes a string and applies the Atbash cipher to it.
+    public static String atbash(String str) {
+        String codedString = "";
+        for (char i:str.toCharArray()) {
+            if (Character.isLetter(i)){
+                if (Character.isUpperCase(i)){
+                    codedString += (char) ('A' + ('Z' - i));
+                }else {
+                    codedString += (char) ('a' + ('z' - i));
+                }
+            }else {
+                codedString += i;
+            }
+
+        }
+        return codedString;
     }
 
 
