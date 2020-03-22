@@ -38,9 +38,14 @@ public class ExerciseJava {
 //        System.out.println(flipEndChars("Ada"));
 //        System.out.println(flipEndChars("z"));
 
-        System.out.println(atbash("apple"));
-        System.out.println(atbash("Hello world!"));
-        System.out.println(atbash("Christmas is the 25th of December"));
+//        System.out.println(atbash("apple"));
+//        System.out.println(atbash("Hello world!"));
+//        System.out.println(atbash("Christmas is the 25th of December"));
+        double[] testArr = new double[9, 17, 30, 1.5];
+        System.out.println(overTime(testArr));
+
+        System.out.println(overTime([16, 18, 30, 1.8]));
+        System.out.println(overTime([9, 17, 30, 1.5]));
 
     }
 
@@ -200,7 +205,7 @@ public class ExerciseJava {
     }
 
 //    3/18 problems
-
+//
 //  Problem: Atbash Cipher
 //  task: The Atbash cipher is an encryption method in which each letter of a word is replaced with its "mirror" letter in the alphabet: A <=> Z; B <=> Y; C <=> X; etc.
 //
@@ -220,6 +225,60 @@ public class ExerciseJava {
 
         }
         return codedString;
+    }
+
+    //  Problem: Bit Rotation
+//    site: https://edabit.com/challenge/tNKWXJZPgRHZAc9Ja
+//  task: Java offers some bit operations but not bit rotation. To complete that, create a function that takes three parameters:
+//
+//  n: Integer, which in binary representaion should be rotated.
+//  m: Number of rotation steps that should be performed.
+//  d: Boolean value; true = rotation right, false = rotation left.
+//Your function should return an integer as a result of its rotated binary representation.
+    public static int bitRotate(int n, int m, boolean d) {
+        int newNumber = 0;
+
+
+
+        return newNumber;
+    }
+
+    //  Problem: Working 9 to 5
+//    site: https://edabit.com/challenge/phxxGdTJraPEQmKdq
+//  task: Write a function that calculates overtime and pay associated with overtime.
+//
+//Working 9 to 5: regular hours
+//After 5pm is overtime
+//Your function gets an array with 4 values:
+//
+//Start of working day, in decimal format, (24-hour day notation)
+//End of working day. (Same format)
+//Hourly rate
+//Overtime multiplier
+//Your function should spit out:
+//
+//$ + earned that day (rounded to the nearest hundreth)
+    public static String overTime(double[] arr) {
+        double jobTime = 0;
+        double overtime = 0;
+        double total = 0;
+        if (arr.length < 4){
+            return "invalid array";
+        }
+
+        if (arr[0] < 9){
+            return "invalid start time";
+        }
+
+        if (arr[1] > 17){
+            jobTime  = 17 - arr[0];
+            overtime = arr[1] - 17;
+        }else{
+            jobTime = arr[1] - arr[0];
+        }
+        total = (jobTime*arr[3]) + (overtime + (arr[3]*arr[4]));
+
+        return Double.toString(total);
     }
 
 
