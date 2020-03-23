@@ -41,12 +41,19 @@ public class ExerciseJava {
 //        System.out.println(atbash("apple"));
 //        System.out.println(atbash("Hello world!"));
 //        System.out.println(atbash("Christmas is the 25th of December"));
-        double[] testArr = new double[9, 17, 30, 1.5];
-        System.out.println(overTime(testArr));
+//        double[] testArr = {9, 17, 30, 1.5};
+//        System.out.println(overTime(testArr));
+//        testArr = new double[]{16, 18, 30, 1.8};
+//        System.out.println(overTime(testArr));
+//        testArr = new double[]{13.25, 15, 30, 1.5};
+//        System.out.println(overTime(testArr));
 
-        System.out.println(overTime([16, 18, 30, 1.8]));
-        System.out.println(overTime([9, 17, 30, 1.5]));
-
+        int[] testArr = {1, 2, 3, 4, 5, 6, 7};
+        System.out.println(sevenBoom(testArr));
+        testArr = new int[]{8, 6, 33, 100};
+        System.out.println(sevenBoom(testArr));
+        testArr = new int[]{2, 55, 60, 97, 86};
+        System.out.println(sevenBoom(testArr));
     }
 
 
@@ -276,10 +283,29 @@ public class ExerciseJava {
         }else{
             jobTime = arr[1] - arr[0];
         }
-        total = (jobTime*arr[3]) + (overtime + (arr[3]*arr[4]));
+        total = (jobTime*arr[2]) + (overtime *(arr[2]*arr[3]));
 
         return Double.toString(total);
     }
+
+    //  Problem: Seven Boom!
+//    site: https://edabit.com/challenge/CKqfEowjmSTw2jsso
+//  task: Create a function that takes an array of numbers and return "Boom!" if the number 7 appears in the array.
+//  Otherwise, return "there is no 7 in the array".
+//
+    public static String sevenBoom(int[] arr) {
+        for (int num: arr) {
+            String stringNum = Integer.toString(num);
+            String[] splitNum = stringNum.split("");
+            for (String singleNum: splitNum) {
+                if (Integer.parseInt(singleNum) == 7){
+                    return "Boom!";
+                }
+            }
+        }
+        return "there is no 7 in the array";
+    }
+
 
 
 }
