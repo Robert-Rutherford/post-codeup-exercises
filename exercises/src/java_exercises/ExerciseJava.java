@@ -48,12 +48,20 @@ public class ExerciseJava {
 //        testArr = new double[]{13.25, 15, 30, 1.5};
 //        System.out.println(overTime(testArr));
 
-        int[] testArr = {1, 2, 3, 4, 5, 6, 7};
-        System.out.println(sevenBoom(testArr));
-        testArr = new int[]{8, 6, 33, 100};
-        System.out.println(sevenBoom(testArr));
-        testArr = new int[]{2, 55, 60, 97, 86};
-        System.out.println(sevenBoom(testArr));
+//        int[] testArr = {1, 2, 3, 4, 5, 6, 7};
+//        System.out.println(sevenBoom(testArr));
+//        testArr = new int[]{8, 6, 33, 100};
+//        System.out.println(sevenBoom(testArr));
+//        testArr = new int[]{2, 55, 60, 97, 86};
+//        System.out.println(sevenBoom(testArr));
+
+//
+        System.out.println(Arrays.toString(findBrokenKeys("happy birthday", "hawwy birthday")));
+        System.out.println(Arrays.toString(findBrokenKeys("starry night", "starrq light")));
+        System.out.println(Arrays.toString(findBrokenKeys("beethoven", "affthoif5")));
+
+
+
     }
 
 
@@ -306,6 +314,58 @@ public class ExerciseJava {
         return "there is no 7 in the array";
     }
 
+//    Sick days catch up
+    //  Problem: A Capital Challenge
+//    site: https://edabit.com/challenge/AudsydHhvWpCCSuaN
+//  task: Given two strings, s1 and s2, select only the characters in each string where the character in the same
+//  position in the other string is in uppercase. Return these as a single string.
+//
+//To illustrate, given the strings s1 = "heLLo" and s2 = "GUlp", we select the letters "he" from s1, because "G"
+// and "U" are uppercase. We then select "lp" from s2, because "LL" is in uppercase. Finally, we join these together
+// and return "help".
+//
+    public static String selectLetters(String s1, String s2) {
 
 
+        return "";
+    }
+
+    //  Problem: Broken Keyboard
+//    site: https://edabit.com/challenge/6THnWXvQrhRrEErtb
+//  task: Given what is supposed to be typed and what is actually typed, write a function that returns the broken key(s). The function looks like:
+//    findBrokenKeys(correct phrase, what you actually typed)
+//
+    public static String[] findBrokenKeys(String str1, String str2) {
+        String[] stringArray1 = str1.split("");
+        String[] stringArray2 = str2.split("");
+        String[] wrongArrayBuild = new String[26];
+        int wrongChar = 0;
+        boolean matchChar = false;
+        if (stringArray1.length != stringArray2.length){
+            wrongArrayBuild[wrongChar] = "";
+            return wrongArrayBuild;
+        }
+        for (int i = 0; i<stringArray1.length; i++) {
+            if (!stringArray1[i].equalsIgnoreCase(stringArray2[i])){
+                for (String wrongStr: wrongArrayBuild) {
+                    if (stringArray1[i].equalsIgnoreCase(wrongStr)){
+                        matchChar = true;
+                    }
+                }
+                if (!matchChar){
+                    wrongArrayBuild[wrongChar] = stringArray1[i];
+                    wrongChar++;
+
+                }
+                matchChar = false;
+            }
+        }
+
+        String[] returnArray = new String[wrongChar];
+
+        System.arraycopy(wrongArrayBuild, 0, returnArray, 0, returnArray.length);
+
+        return returnArray;
+
+    }
 }
