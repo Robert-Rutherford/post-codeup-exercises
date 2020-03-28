@@ -78,10 +78,14 @@ public class ExerciseJava {
 //                {9, 3, 6, 3}
 //        };
 //        System.out.println(Arrays.toString(findLargestNums(test)));
+//
+//        System.out.println(uncensor("Wh*r* d*d my v*w*ls g*?", "eeioeo"));
+//        System.out.println(uncensor("abcd", ""));
+//        System.out.println(uncensor("*PP*RC*S*", "UEAE"));
 
-        System.out.println(uncensor("Wh*r* d*d my v*w*ls g*?", "eeioeo"));
-        System.out.println(uncensor("abcd", ""));
-        System.out.println(uncensor("*PP*RC*S*", "UEAE"));
+        System.out.println(xPronounce("Inside the box was a xylophone"));
+        System.out.println(xPronounce("The x ray is excellent"));
+        System.out.println(xPronounce("OMG x box unboxing video x D"));
 
 
 
@@ -441,5 +445,33 @@ public class ExerciseJava {
 
     }
 
+    //  Problem: Pronouncing the Xs
+//    site: https://edabit.com/challenge/g5n85W62rJqZakMry
+//  task: Create a function which replaces all the x's in the string in the following ways:
+//
+//Replace all x's with "cks" UNLESS:
+//
+//The word begins with "x", therefore replace it with "z".
+//The word is just the letter "x", therefore replace it with "ecks".
+//
+    public static String xPronounce(String sentence) {
+        String[] words = sentence.split(" ");
+        for (int i=0; i< words.length; i++){
+            String[] letters = words[i].split("");
+            for (int j=0;j<letters.length;j++){
+                if (j== 0 && letters[j].equalsIgnoreCase("x")){
+                    if (letters.length == 1){
+                        letters[j] = "ecks";
+                    }else {
+                        letters[j] = "z";
+                    }
+                }else if (letters[j].equalsIgnoreCase("x")){
+                    letters[j] = "cks";
+                }
+            }
+            words[i] = String.join("",letters);
+        }
+        return String.join(" ",words);
+    }
 
 }
