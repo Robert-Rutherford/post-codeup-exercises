@@ -56,9 +56,28 @@ public class ExerciseJava {
 //        System.out.println(sevenBoom(testArr));
 
 //
-        System.out.println(Arrays.toString(findBrokenKeys("happy birthday", "hawwy birthday")));
-        System.out.println(Arrays.toString(findBrokenKeys("starry night", "starrq light")));
-        System.out.println(Arrays.toString(findBrokenKeys("beethoven", "affthoif5")));
+//        System.out.println(Arrays.toString(findBrokenKeys("happy birthday", "hawwy birthday")));
+//        System.out.println(Arrays.toString(findBrokenKeys("starry night", "starrq light")));
+//        System.out.println(Arrays.toString(findBrokenKeys("beethoven", "affthoif5")));
+
+        double[][] test = {
+                {4, 2, 7, 1},
+                {20, 70, 40, 90},
+                {1, 2, 0}
+        };
+        System.out.println(Arrays.toString(findLargestNums(test)));
+        test = new double[][]{
+                {-34, -54, -74},
+                {-32, -2, -65},
+                {-54, 7, -43}
+        };
+        System.out.println(Arrays.toString(findLargestNums(test)));
+        test = new double[][]{
+                {0.4321, 0.7634, 0.652},
+                {1.324, 9.32, 2.5423, 6.4314},
+                {9, 3, 6, 3}
+        };
+        System.out.println(Arrays.toString(findLargestNums(test)));
 
 
 
@@ -368,4 +387,32 @@ public class ExerciseJava {
         return returnArray;
 
     }
+
+    //  Problem: Find the Largest Numbers in a Group of Arrays
+//    site: https://edabit.com/challenge/QLz5aGfChHhndKWMv
+//  task: Create a function that takes an array of arrays with numbers. Return a new (single) array with the largest numbers of each.
+//
+    public static double[] findLargestNums(double[][] arr) {
+        double[] returnArray = new double[arr.length];
+        int arraySlot = 0;
+        double numHolder = 0;
+        for (double[] subArray: arr) {
+            for (int i = 0; i< subArray.length; i++) {
+                if (i==0){
+                    numHolder = subArray[i];
+                }else {
+                    if (subArray[i] > numHolder){
+                        numHolder = subArray[i];
+                    }
+                }
+            }
+            returnArray[arraySlot] = numHolder;
+            arraySlot++;
+        }
+
+        return returnArray;
+
+    }
+
+
 }
