@@ -60,24 +60,28 @@ public class ExerciseJava {
 //        System.out.println(Arrays.toString(findBrokenKeys("starry night", "starrq light")));
 //        System.out.println(Arrays.toString(findBrokenKeys("beethoven", "affthoif5")));
 
-        double[][] test = {
-                {4, 2, 7, 1},
-                {20, 70, 40, 90},
-                {1, 2, 0}
-        };
-        System.out.println(Arrays.toString(findLargestNums(test)));
-        test = new double[][]{
-                {-34, -54, -74},
-                {-32, -2, -65},
-                {-54, 7, -43}
-        };
-        System.out.println(Arrays.toString(findLargestNums(test)));
-        test = new double[][]{
-                {0.4321, 0.7634, 0.652},
-                {1.324, 9.32, 2.5423, 6.4314},
-                {9, 3, 6, 3}
-        };
-        System.out.println(Arrays.toString(findLargestNums(test)));
+//        double[][] test = {
+//                {4, 2, 7, 1},
+//                {20, 70, 40, 90},
+//                {1, 2, 0}
+//        };
+//        System.out.println(Arrays.toString(findLargestNums(test)));
+//        test = new double[][]{
+//                {-34, -54, -74},
+//                {-32, -2, -65},
+//                {-54, 7, -43}
+//        };
+//        System.out.println(Arrays.toString(findLargestNums(test)));
+//        test = new double[][]{
+//                {0.4321, 0.7634, 0.652},
+//                {1.324, 9.32, 2.5423, 6.4314},
+//                {9, 3, 6, 3}
+//        };
+//        System.out.println(Arrays.toString(findLargestNums(test)));
+
+        System.out.println(uncensor("Wh*r* d*d my v*w*ls g*?", "eeioeo"));
+        System.out.println(uncensor("abcd", ""));
+        System.out.println(uncensor("*PP*RC*S*", "UEAE"));
 
 
 
@@ -388,6 +392,8 @@ public class ExerciseJava {
 
     }
 
+//    march 28
+
     //  Problem: Find the Largest Numbers in a Group of Arrays
 //    site: https://edabit.com/challenge/QLz5aGfChHhndKWMv
 //  task: Create a function that takes an array of arrays with numbers. Return a new (single) array with the largest numbers of each.
@@ -411,6 +417,27 @@ public class ExerciseJava {
         }
 
         return returnArray;
+
+    }
+
+    //  Problem: C*ns*r*d Str*ngs
+//    site: https://edabit.com/challenge/jt6TWkTcYdWcRXbds
+//  task: Someone has attempted to censor my strings by replacing every vowel with a *, l*k* th*s. Luckily, I've been able to find the vowels that were removed.
+//
+//  Given a censored string and a string of the censored vowels, return the original uncensored string.
+//
+    public static String uncensor(String str, String vowels) {
+        String[] strSplit = str.split("");
+        String[] vowelSplit = vowels.split("");
+        int vowelNum = 0;
+        for (int i =0; i < strSplit.length;i++){
+            if (strSplit[i].equalsIgnoreCase("*")){
+                strSplit[i] = vowelSplit[vowelNum];
+                vowelNum++;
+            }
+        }
+
+        return String.join("",strSplit);
 
     }
 
