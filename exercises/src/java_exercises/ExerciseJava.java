@@ -83,11 +83,13 @@ public class ExerciseJava {
 //        System.out.println(uncensor("abcd", ""));
 //        System.out.println(uncensor("*PP*RC*S*", "UEAE"));
 
-        System.out.println(xPronounce("Inside the box was a xylophone"));
-        System.out.println(xPronounce("The x ray is excellent"));
-        System.out.println(xPronounce("OMG x box unboxing video x D"));
+//        System.out.println(xPronounce("Inside the box was a xylophone"));
+//        System.out.println(xPronounce("The x ray is excellent"));
+//        System.out.println(xPronounce("OMG x box unboxing video x D"));
 
-
+          System.out.println(removeLastVowel("Those who dare to fail miserably can achieve greatly."));
+          System.out.println(removeLastVowel("Love is a serious mental disease."));
+          System.out.println(removeLastVowel("Get busy living or get busy dying."));
 
     }
 
@@ -471,6 +473,35 @@ public class ExerciseJava {
             }
             words[i] = String.join("",letters);
         }
+        return String.join(" ",words);
+    }
+
+    //    march 29
+
+    //  Problem: Remove the Last Vowel
+//    site: https://edabit.com/challenge/buctumjkfFWGx5iP6
+//  task: Write a function that removes the last vowel in each word in a sentence.
+//
+    public static String removeLastVowel(String str) {
+        String[] vowels = {"a","e","i","o","u"};
+        String[] words = str.split(" ");
+        for (int i = 0; i< words.length; i++){
+            String[] letters = words[i].split("");
+            boolean vowelTaken = false;
+            for (int j = letters.length-1; j>=0; j--) {
+                if (!vowelTaken){
+                    for (String vowel : vowels) {
+                        if (vowel.equalsIgnoreCase(letters[j])) {
+                            letters[j] = "";
+                            vowelTaken = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            words[i] = String.join("",letters);
+        }
+
         return String.join(" ",words);
     }
 
