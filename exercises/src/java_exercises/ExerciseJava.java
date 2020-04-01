@@ -87,9 +87,14 @@ public class ExerciseJava {
 //        System.out.println(xPronounce("The x ray is excellent"));
 //        System.out.println(xPronounce("OMG x box unboxing video x D"));
 
-          System.out.println(removeLastVowel("Those who dare to fail miserably can achieve greatly."));
-          System.out.println(removeLastVowel("Love is a serious mental disease."));
-          System.out.println(removeLastVowel("Get busy living or get busy dying."));
+//          System.out.println(removeLastVowel("Those who dare to fail miserably can achieve greatly."));
+//          System.out.println(removeLastVowel("Love is a serious mental disease."));
+//          System.out.println(removeLastVowel("Get busy living or get busy dying."));
+
+        System.out.println(duplicateCount("abcde"));
+        System.out.println(duplicateCount("aabbcde"));
+        System.out.println(duplicateCount("Indivisibilities"));
+        System.out.println(duplicateCount("Aa"));
 
     }
 
@@ -505,4 +510,42 @@ public class ExerciseJava {
         return String.join(" ",words);
     }
 
+    //    April 1st
+
+    //  Problem: Count the Number of Duplicate Characters
+//    site: https://edabit.com/challenge/ENozFXdPz9YTTHdps
+//  task: Create a function that takes a string and returns the number of alphanumeric characters that occur more than once.
+//    Notes
+//      Duplicate characters are case sensitive.
+//      The input string will contain only alphanumeric characters.
+//
+    public static int duplicateCount(String str) {
+        String[] letters = str.split("");
+        String[] dupLetters = new String[26];
+        int dups = 0;
+        for (int i=0;i<letters.length;i++){
+            for (int j = i+1; j<letters.length;j++){
+                if (letters[i].equals(letters[j])){
+                    if (dups == 0){
+                        dupLetters[dups] = letters[i];
+                        dups++;
+                    }else {
+                        boolean counted = false;
+                        for (int k=0; k<dups;k++){
+                            if (letters[i].equals(dupLetters[k])){
+                                counted =true;
+                                break;
+                            }
+                        }
+                        if (!counted){
+                            dupLetters[dups] = letters[i];
+                            dups++;
+                        }
+                    }
+
+                }
+            }
+        }
+        return dups;
+    }
 }
