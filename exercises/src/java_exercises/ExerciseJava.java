@@ -91,10 +91,15 @@ public class ExerciseJava {
 //          System.out.println(removeLastVowel("Love is a serious mental disease."));
 //          System.out.println(removeLastVowel("Get busy living or get busy dying."));
 
-        System.out.println(duplicateCount("abcde"));
-        System.out.println(duplicateCount("aabbcde"));
-        System.out.println(duplicateCount("Indivisibilities"));
-        System.out.println(duplicateCount("Aa"));
+//        System.out.println(duplicateCount("abcde"));
+//        System.out.println(duplicateCount("aabbcde"));
+//        System.out.println(duplicateCount("Indivisibilities"));
+//        System.out.println(duplicateCount("Aa"));
+
+        System.out.println(swapTwo("ABCDEFGH"));
+        System.out.println(swapTwo("AABBCCDDEEFF"));
+        System.out.println(swapTwo("munchkins"));
+        System.out.println(swapTwo("FFGGHHI"));
 
     }
 
@@ -548,4 +553,36 @@ public class ExerciseJava {
         }
         return dups;
     }
+
+    //    April 2
+
+//  Problem: Swapping Two by Two
+//    site: https://edabit.com/challenge/Bt6tuyqL7ESZHpsec
+//  task: Write a function that swaps the first pair (1st and 2nd characters) with the second pair (3rd and 4th characters) for every quadruplet substring.
+//    Notes
+//      Keep leftover strings in the same order.
+//
+
+    public static String swapTwo(String str) {
+        String[] letters = str.split("");
+        int remainder = letters.length % 4;
+        int i = 0;
+        while (i+4 <= letters.length){
+            String tempHold1 = letters[i];
+            String tempHold2 = letters[i+1];
+            letters[i] = letters[i+2];
+            letters[i+1] = letters[i+3];
+            letters[i+2] = tempHold1;
+            letters[i+3] = tempHold2;
+            i+=4;
+        }
+
+        return String.join("",letters);
+    }
+
+
+
 }
+
+
+
