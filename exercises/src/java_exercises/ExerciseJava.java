@@ -96,10 +96,15 @@ public class ExerciseJava {
 //        System.out.println(duplicateCount("Indivisibilities"));
 //        System.out.println(duplicateCount("Aa"));
 
-        System.out.println(swapTwo("ABCDEFGH"));
-        System.out.println(swapTwo("AABBCCDDEEFF"));
-        System.out.println(swapTwo("munchkins"));
-        System.out.println(swapTwo("FFGGHHI"));
+//        System.out.println(swapTwo("ABCDEFGH"));
+//        System.out.println(swapTwo("AABBCCDDEEFF"));
+//        System.out.println(swapTwo("munchkins"));
+//        System.out.println(swapTwo("FFGGHHI"));
+
+        System.out.println(textToNum("123-647-EYES"));
+        System.out.println(textToNum("(325)444-TEST"));
+        System.out.println(textToNum("653-TRY-THIS"));
+        System.out.println(textToNum("435-224-7613"));
 
     }
 
@@ -579,6 +584,53 @@ public class ExerciseJava {
 
         return String.join("",letters);
     }
+
+    //    April 5
+
+//  Problem: Phone Number Word Decoder
+//    site: https://edabit.com/challenge/8NZaLdJBkhZCgNBc7
+//  task: Create a program that converts a phone number with letters to one with only numbers.
+//
+//Number	Letter
+//0	none
+//1	none
+//2	ABC
+//3	DEF
+//4	GHI
+//5	JKL
+//6	MNO
+//7	PQRS
+//8	TUV
+//9	WXYZ
+//
+//    Notes
+//All inputs will be formatted as a string representing a proper phone number in the format XXX-XXX-XXXX or (XXX)XXX-XXXX, using numbers and capital letters.
+//Check the Resources tab for more info on telephone keypads.
+//
+public static String textToNum(String phone) {
+        String[] numbers = phone.split("");
+        String[] letterConvert = {"","","ABC","DEF","GHI","JKL","MNO","PQRS","TUV","WXYZ"};
+        for (int i = 0; i<numbers.length; i++){
+            if (numbers[i].equalsIgnoreCase("(")||numbers[i].equalsIgnoreCase(")")||numbers[i].equalsIgnoreCase("-")){
+                continue;
+            }
+            if (!(numbers[i].equalsIgnoreCase("0")||numbers[i].equalsIgnoreCase("1")
+                    ||numbers[i].equalsIgnoreCase("2")||numbers[i].equalsIgnoreCase("3")
+                    ||numbers[i].equalsIgnoreCase("4")||numbers[i].equalsIgnoreCase("5")
+                    ||numbers[i].equalsIgnoreCase("6")||numbers[i].equalsIgnoreCase("7")
+                    ||numbers[i].equalsIgnoreCase("8")||numbers[i].equalsIgnoreCase("9"))){
+                for (int j = 0; j <letterConvert.length;j++){
+                    for (String letter: letterConvert[j].split("")) {
+                        if (numbers[i].equalsIgnoreCase(letter)){
+                            numbers[i] = Integer.toString(j);
+                        }
+                    }
+                }
+            }
+        }
+
+        return String.join("",numbers);
+}
 
 
 
