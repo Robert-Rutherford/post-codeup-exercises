@@ -1,7 +1,5 @@
 package java_exercises;
 
-import java.util.Arrays;
-
 public class ExerciseJava {
     public static void main(String[] args) {
 
@@ -108,27 +106,27 @@ public class ExerciseJava {
         long num1 = 451999277;
         long num2 = 411777228;
         System.out.println(trouble(num1, num2));
-         num1 = 1222345;
-         num2 = 12345;
+        num1 = 1222345;
+        num2 = 12345;
         System.out.println(trouble(num1, num2));
-         num1 = 666789;
-         num2 = 12345667;
+        num1 = 666789;
+        num2 = 12345667;
         System.out.println(trouble(num1, num2));
-         num1 = 33789;
-         num2 = 12345337;
+        num1 = 33789;
+        num2 = 12345337;
         System.out.println(trouble(num1, num2));
 
     }
 
 
-//    2/29/2020 - light exercise edabit.com **************
+    //    2/29/2020 - light exercise edabit.com **************
 //  Problem: Array of Multiples
 //  task: Create a function that takes two numbers as arguments (num, length) and returns an array of multiples of num up to length.
 //  site: https://edabit.com/challenge/rzpucPyoyEtXPo2BG
-    private static int[] arrayOfMultiples(int num, int length){
+    private static int[] arrayOfMultiples(int num, int length) {
         int[] newArray = new int[length];
-        for (int i = 0; i<length;i++){
-            newArray[i] = num*(i+1);
+        for (int i = 0; i < length; i++) {
+            newArray[i] = num * (i + 1);
         }
         return newArray;
     }
@@ -136,13 +134,13 @@ public class ExerciseJava {
     //  Problem: Perfect Square Patch
     //  task: Create a function that takes an integer and outputs an n x n square solely consisting of the integer n.
     //  site: https://edabit.com/challenge/7Tb7qMDQHtz3xpydd
-    private static int[][] squarePatch(int num){
+    private static int[][] squarePatch(int num) {
         int[][] square = new int[num][num];
-        if (num == 0){
+        if (num == 0) {
             return square;
         }
-        for (int i = 0; i< num; i++){
-            for (int j =0; j<num; j++){
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j < num; j++) {
                 square[i][j] = num;
             }
         }
@@ -160,24 +158,24 @@ public class ExerciseJava {
 //     A hex code must begin with a pound key # and is exactly 6 characters in length. Each character must be a digit
 //     from 0-9 or an alphabetic character from A-F. All alphabetic characters may be uppercase or lowercase.
 //  site: https://edabit.com/challenge/9zBJYnBekqAo52zEp
-    private static Boolean isValidHexCode(String code){
-        if (code.length() != 7){
+    private static Boolean isValidHexCode(String code) {
+        if (code.length() != 7) {
             return false;
         }
-        if (code.charAt(0) != '#'){
+        if (code.charAt(0) != '#') {
             return false;
         }
-        for (int i= 1; i<code.length();i++){
+        for (int i = 1; i < code.length(); i++) {
             boolean flag = Character.isDigit(code.charAt(i));
-            if (flag){
+            if (flag) {
                 int num = Character.getNumericValue(code.charAt(i));
 //                will never trigger
-                if (num > 9 || num < 0){
+                if (num > 9 || num < 0) {
                     return false;
                 }
-            }else {
+            } else {
                 char lower = Character.toLowerCase(code.charAt(i));
-                if (lower < 'a' || lower > 'f'){
+                if (lower < 'a' || lower > 'f') {
                     return false;
                 }
             }
@@ -189,19 +187,19 @@ public class ExerciseJava {
 //  task: Create a method that accepts a string of space separated numbers and returns the highest and lowest number (as a string).
 //  site: https://edabit.com/challenge/iaCSbqngin2AXriyB
 
-    private static String highLow(String numString){
+    private static String highLow(String numString) {
         String returnString = "";
         int high = 0;
         int low = 0;
         String[] splitString = numString.split(" ");
-        for (int i = 0; i< splitString.length;i++){
-            if (i == 0){
+        for (int i = 0; i < splitString.length; i++) {
+            if (i == 0) {
                 high = Integer.parseInt(splitString[i]);
                 low = Integer.parseInt(splitString[i]);
-            }else{
-                if (Integer.parseInt(splitString[i]) > high){
-                    high =Integer.parseInt(splitString[i]);
-                }else if (Integer.parseInt(splitString[i]) < low){
+            } else {
+                if (Integer.parseInt(splitString[i]) > high) {
+                    high = Integer.parseInt(splitString[i]);
+                } else if (Integer.parseInt(splitString[i]) < low) {
                     low = Integer.parseInt(splitString[i]);
                 }
             }
@@ -215,7 +213,7 @@ public class ExerciseJava {
     //  Problem: Recursion: Array Sum
 //  task: Write a function that finds the sum of an array. Make your function recursive.
 //  site: https://edabit.com/challenge/hf2THAoQRQbAx2jc9
-    private static int sum(int[] numArray){
+    private static int sum(int[] numArray) {
         int total = 0;
 
         return total;
@@ -233,49 +231,49 @@ public class ExerciseJava {
 //Both players have to say either "rock", "paper" or "scissors" at the same time.
 //Rock beats scissors, paper beats rock, scissors beat paper.
 //  site: https://edabit.com/challenge/3S8XppR6Yf5mXPxij
-    private static String rps(String player1,String player2){
-        if (player1.equalsIgnoreCase(player2)){
+    private static String rps(String player1, String player2) {
+        if (player1.equalsIgnoreCase(player2)) {
             return "TIE";
         }
-        if (player1.equalsIgnoreCase("rock")){
-            if (player2.equalsIgnoreCase("paper")){
+        if (player1.equalsIgnoreCase("rock")) {
+            if (player2.equalsIgnoreCase("paper")) {
                 return "Player 2 wins";
-            }else if (player2.equalsIgnoreCase("scissors")){
+            } else if (player2.equalsIgnoreCase("scissors")) {
                 return "Player 1 wins";
-        }
-        }else if (player1.equalsIgnoreCase("paper")){
-                if (player2.equalsIgnoreCase("scissors")){
-                    return "Player 2 wins";
-                }else if (player2.equalsIgnoreCase("rock")){
-                    return "Player 1 wins";
-                }
-        }else if (player1.equalsIgnoreCase("scissors")){
-                if (player2.equalsIgnoreCase("rock")){
-                    return "Player 2 wins";
-                }else if (player2.equalsIgnoreCase("paper")){
-                    return "Player 1 wins";
-                }
+            }
+        } else if (player1.equalsIgnoreCase("paper")) {
+            if (player2.equalsIgnoreCase("scissors")) {
+                return "Player 2 wins";
+            } else if (player2.equalsIgnoreCase("rock")) {
+                return "Player 1 wins";
+            }
+        } else if (player1.equalsIgnoreCase("scissors")) {
+            if (player2.equalsIgnoreCase("rock")) {
+                return "Player 2 wins";
+            } else if (player2.equalsIgnoreCase("paper")) {
+                return "Player 1 wins";
+            }
         }
         return " ";
     }
 
-//  Problem: Switcharoo
+    //  Problem: Switcharoo
 //  task: Create a function that takes a string and returns a new string with its first and last characters swapped, except under three conditions:
 //
 //If the length of the string is less than two, return "Incompatible.".
 //If the first and last characters are the same, return "Two's a pair.".
 //  site: https://edabit.com/challenge/c52kNwPuWo5kp9x4H
-    private static String flipEndChars(String input){
-        if (input.length() < 2){
+    private static String flipEndChars(String input) {
+        if (input.length() < 2) {
             return "Incompatible.";
         }
-        if (input.charAt(0) == input.charAt(input.length()-1)){
+        if (input.charAt(0) == input.charAt(input.length() - 1)) {
             return "Two's a pair.";
         }
         return input.charAt(input.length() - 1) + input.substring(1, input.length() - 1) + input.charAt(0);
     }
 
-//    3/18 problems
+    //    3/18 problems
 //
 //  Problem: Atbash Cipher
 //  task: The Atbash cipher is an encryption method in which each letter of a word is replaced with its "mirror" letter in the alphabet: A <=> Z; B <=> Y; C <=> X; etc.
@@ -283,14 +281,14 @@ public class ExerciseJava {
 //Create a function that takes a string and applies the Atbash cipher to it.
     public static String atbash(String str) {
         String codedString = "";
-        for (char i:str.toCharArray()) {
-            if (Character.isLetter(i)){
-                if (Character.isUpperCase(i)){
+        for (char i : str.toCharArray()) {
+            if (Character.isLetter(i)) {
+                if (Character.isUpperCase(i)) {
                     codedString += (char) ('A' + ('Z' - i));
-                }else {
+                } else {
                     codedString += (char) ('a' + ('z' - i));
                 }
-            }else {
+            } else {
                 codedString += i;
             }
 
@@ -308,7 +306,6 @@ public class ExerciseJava {
 //Your function should return an integer as a result of its rotated binary representation.
     public static int bitRotate(int n, int m, boolean d) {
         int newNumber = 0;
-
 
 
         return newNumber;
@@ -333,21 +330,21 @@ public class ExerciseJava {
         double jobTime = 0;
         double overtime = 0;
         double total = 0;
-        if (arr.length < 4){
+        if (arr.length < 4) {
             return "invalid array";
         }
 
-        if (arr[0] < 9){
+        if (arr[0] < 9) {
             return "invalid start time";
         }
 
-        if (arr[1] > 17){
-            jobTime  = 17 - arr[0];
+        if (arr[1] > 17) {
+            jobTime = 17 - arr[0];
             overtime = arr[1] - 17;
-        }else{
+        } else {
             jobTime = arr[1] - arr[0];
         }
-        total = (jobTime*arr[2]) + (overtime *(arr[2]*arr[3]));
+        total = (jobTime * arr[2]) + (overtime * (arr[2] * arr[3]));
 
         return Double.toString(total);
     }
@@ -358,11 +355,11 @@ public class ExerciseJava {
 //  Otherwise, return "there is no 7 in the array".
 //
     public static String sevenBoom(int[] arr) {
-        for (int num: arr) {
+        for (int num : arr) {
             String stringNum = Integer.toString(num);
             String[] splitNum = stringNum.split("");
-            for (String singleNum: splitNum) {
-                if (Integer.parseInt(singleNum) == 7){
+            for (String singleNum : splitNum) {
+                if (Integer.parseInt(singleNum) == 7) {
                     return "Boom!";
                 }
             }
@@ -370,7 +367,7 @@ public class ExerciseJava {
         return "there is no 7 in the array";
     }
 
-//    Sick days catch up
+    //    Sick days catch up
     //  Problem: A Capital Challenge
 //    site: https://edabit.com/challenge/AudsydHhvWpCCSuaN
 //  task: Given two strings, s1 and s2, select only the characters in each string where the character in the same
@@ -397,18 +394,18 @@ public class ExerciseJava {
         String[] wrongArrayBuild = new String[26];
         int wrongChar = 0;
         boolean matchChar = false;
-        if (stringArray1.length != stringArray2.length){
+        if (stringArray1.length != stringArray2.length) {
             wrongArrayBuild[wrongChar] = "";
             return wrongArrayBuild;
         }
-        for (int i = 0; i<stringArray1.length; i++) {
-            if (!stringArray1[i].equalsIgnoreCase(stringArray2[i])){
-                for (String wrongStr: wrongArrayBuild) {
-                    if (stringArray1[i].equalsIgnoreCase(wrongStr)){
+        for (int i = 0; i < stringArray1.length; i++) {
+            if (!stringArray1[i].equalsIgnoreCase(stringArray2[i])) {
+                for (String wrongStr : wrongArrayBuild) {
+                    if (stringArray1[i].equalsIgnoreCase(wrongStr)) {
                         matchChar = true;
                     }
                 }
-                if (!matchChar){
+                if (!matchChar) {
                     wrongArrayBuild[wrongChar] = stringArray1[i];
                     wrongChar++;
 
@@ -435,12 +432,12 @@ public class ExerciseJava {
         double[] returnArray = new double[arr.length];
         int arraySlot = 0;
         double numHolder = 0;
-        for (double[] subArray: arr) {
-            for (int i = 0; i< subArray.length; i++) {
-                if (i==0){
+        for (double[] subArray : arr) {
+            for (int i = 0; i < subArray.length; i++) {
+                if (i == 0) {
                     numHolder = subArray[i];
-                }else {
-                    if (subArray[i] > numHolder){
+                } else {
+                    if (subArray[i] > numHolder) {
                         numHolder = subArray[i];
                     }
                 }
@@ -463,14 +460,14 @@ public class ExerciseJava {
         String[] strSplit = str.split("");
         String[] vowelSplit = vowels.split("");
         int vowelNum = 0;
-        for (int i =0; i < strSplit.length;i++){
-            if (strSplit[i].equalsIgnoreCase("*")){
+        for (int i = 0; i < strSplit.length; i++) {
+            if (strSplit[i].equalsIgnoreCase("*")) {
                 strSplit[i] = vowelSplit[vowelNum];
                 vowelNum++;
             }
         }
 
-        return String.join("",strSplit);
+        return String.join("", strSplit);
 
     }
 
@@ -485,22 +482,22 @@ public class ExerciseJava {
 //
     public static String xPronounce(String sentence) {
         String[] words = sentence.split(" ");
-        for (int i=0; i< words.length; i++){
+        for (int i = 0; i < words.length; i++) {
             String[] letters = words[i].split("");
-            for (int j=0;j<letters.length;j++){
-                if (j== 0 && letters[j].equalsIgnoreCase("x")){
-                    if (letters.length == 1){
+            for (int j = 0; j < letters.length; j++) {
+                if (j == 0 && letters[j].equalsIgnoreCase("x")) {
+                    if (letters.length == 1) {
                         letters[j] = "ecks";
-                    }else {
+                    } else {
                         letters[j] = "z";
                     }
-                }else if (letters[j].equalsIgnoreCase("x")){
+                } else if (letters[j].equalsIgnoreCase("x")) {
                     letters[j] = "cks";
                 }
             }
-            words[i] = String.join("",letters);
+            words[i] = String.join("", letters);
         }
-        return String.join(" ",words);
+        return String.join(" ", words);
     }
 
     //    march 29
@@ -510,13 +507,13 @@ public class ExerciseJava {
 //  task: Write a function that removes the last vowel in each word in a sentence.
 //
     public static String removeLastVowel(String str) {
-        String[] vowels = {"a","e","i","o","u"};
+        String[] vowels = {"a", "e", "i", "o", "u"};
         String[] words = str.split(" ");
-        for (int i = 0; i< words.length; i++){
+        for (int i = 0; i < words.length; i++) {
             String[] letters = words[i].split("");
             boolean vowelTaken = false;
-            for (int j = letters.length-1; j>=0; j--) {
-                if (!vowelTaken){
+            for (int j = letters.length - 1; j >= 0; j--) {
+                if (!vowelTaken) {
                     for (String vowel : vowels) {
                         if (vowel.equalsIgnoreCase(letters[j])) {
                             letters[j] = "";
@@ -526,10 +523,10 @@ public class ExerciseJava {
                     }
                 }
             }
-            words[i] = String.join("",letters);
+            words[i] = String.join("", letters);
         }
 
-        return String.join(" ",words);
+        return String.join(" ", words);
     }
 
     //    April 1st
@@ -545,21 +542,21 @@ public class ExerciseJava {
         String[] letters = str.split("");
         String[] dupLetters = new String[26];
         int dups = 0;
-        for (int i=0;i<letters.length;i++){
-            for (int j = i+1; j<letters.length;j++){
-                if (letters[i].equals(letters[j])){
-                    if (dups == 0){
+        for (int i = 0; i < letters.length; i++) {
+            for (int j = i + 1; j < letters.length; j++) {
+                if (letters[i].equals(letters[j])) {
+                    if (dups == 0) {
                         dupLetters[dups] = letters[i];
                         dups++;
-                    }else {
+                    } else {
                         boolean counted = false;
-                        for (int k=0; k<dups;k++){
-                            if (letters[i].equals(dupLetters[k])){
-                                counted =true;
+                        for (int k = 0; k < dups; k++) {
+                            if (letters[i].equals(dupLetters[k])) {
+                                counted = true;
                                 break;
                             }
                         }
-                        if (!counted){
+                        if (!counted) {
                             dupLetters[dups] = letters[i];
                             dups++;
                         }
@@ -584,22 +581,22 @@ public class ExerciseJava {
         String[] letters = str.split("");
         int remainder = letters.length % 4;
         int i = 0;
-        while (i+4 <= letters.length){
+        while (i + 4 <= letters.length) {
             String tempHold1 = letters[i];
-            String tempHold2 = letters[i+1];
-            letters[i] = letters[i+2];
-            letters[i+1] = letters[i+3];
-            letters[i+2] = tempHold1;
-            letters[i+3] = tempHold2;
-            i+=4;
+            String tempHold2 = letters[i + 1];
+            letters[i] = letters[i + 2];
+            letters[i + 1] = letters[i + 3];
+            letters[i + 2] = tempHold1;
+            letters[i + 3] = tempHold2;
+            i += 4;
         }
 
-        return String.join("",letters);
+        return String.join("", letters);
     }
 
     //    April 5
 
-//  Problem: Phone Number Word Decoder
+    //  Problem: Phone Number Word Decoder
 //    site: https://edabit.com/challenge/8NZaLdJBkhZCgNBc7
 //  task: Create a program that converts a phone number with letters to one with only numbers.
 //
@@ -619,21 +616,21 @@ public class ExerciseJava {
 //All inputs will be formatted as a string representing a proper phone number in the format XXX-XXX-XXXX or (XXX)XXX-XXXX, using numbers and capital letters.
 //Check the Resources tab for more info on telephone keypads.
 //
-public static String textToNum(String phone) {
+    public static String textToNum(String phone) {
         String[] numbers = phone.split("");
-        String[] letterConvert = {"","","ABC","DEF","GHI","JKL","MNO","PQRS","TUV","WXYZ"};
-        for (int i = 0; i<numbers.length; i++){
-            if (numbers[i].equalsIgnoreCase("(")||numbers[i].equalsIgnoreCase(")")||numbers[i].equalsIgnoreCase("-")){
+        String[] letterConvert = {"", "", "ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ"};
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i].equalsIgnoreCase("(") || numbers[i].equalsIgnoreCase(")") || numbers[i].equalsIgnoreCase("-")) {
                 continue;
             }
-            if (!(numbers[i].equalsIgnoreCase("0")||numbers[i].equalsIgnoreCase("1")
-                    ||numbers[i].equalsIgnoreCase("2")||numbers[i].equalsIgnoreCase("3")
-                    ||numbers[i].equalsIgnoreCase("4")||numbers[i].equalsIgnoreCase("5")
-                    ||numbers[i].equalsIgnoreCase("6")||numbers[i].equalsIgnoreCase("7")
-                    ||numbers[i].equalsIgnoreCase("8")||numbers[i].equalsIgnoreCase("9"))){
-                for (int j = 0; j <letterConvert.length;j++){
-                    for (String letter: letterConvert[j].split("")) {
-                        if (numbers[i].equalsIgnoreCase(letter)){
+            if (!(numbers[i].equalsIgnoreCase("0") || numbers[i].equalsIgnoreCase("1")
+                    || numbers[i].equalsIgnoreCase("2") || numbers[i].equalsIgnoreCase("3")
+                    || numbers[i].equalsIgnoreCase("4") || numbers[i].equalsIgnoreCase("5")
+                    || numbers[i].equalsIgnoreCase("6") || numbers[i].equalsIgnoreCase("7")
+                    || numbers[i].equalsIgnoreCase("8") || numbers[i].equalsIgnoreCase("9"))) {
+                for (int j = 0; j < letterConvert.length; j++) {
+                    for (String letter : letterConvert[j].split("")) {
+                        if (numbers[i].equalsIgnoreCase(letter)) {
                             numbers[i] = Integer.toString(j);
                         }
                     }
@@ -641,12 +638,12 @@ public static String textToNum(String phone) {
             }
         }
 
-        return String.join("",numbers);
-}
+        return String.join("", numbers);
+    }
 
     //    April 6
 
-//  Problem: Triple + Double = So Much Trouble
+    //  Problem: Triple + Double = So Much Trouble
 //    site: https://edabit.com/challenge/27h4mwAKD3hhy6onh
 //  task: Create a function that takes two integers and returns true if a number repeats three times in a row at any
 //          place in num1 AND that same number repeats two times in a row in num2.
@@ -662,18 +659,18 @@ public static String textToNum(String phone) {
         String[] tripleNum = sNum1.split("");
         String[] doubleNum = sNum2.split("");
 
-        for (int i = 0; i < tripleNum.length-2; i++){
-            if (tripleNum[i].equalsIgnoreCase(tripleNum[i+1]) && tripleNum[i].equalsIgnoreCase(tripleNum[i+2])){
+        for (int i = 0; i < tripleNum.length - 2; i++) {
+            if (tripleNum[i].equalsIgnoreCase(tripleNum[i + 1]) && tripleNum[i].equalsIgnoreCase(tripleNum[i + 2])) {
                 hasTriple = true;
             }
         }
-        for (int i = 0; i < doubleNum.length-1;i++){
-            if (doubleNum[i].equalsIgnoreCase(doubleNum[i+1])){
+        for (int i = 0; i < doubleNum.length - 1; i++) {
+            if (doubleNum[i].equalsIgnoreCase(doubleNum[i + 1])) {
                 hasDouble = true;
             }
         }
 
-        if (hasDouble && hasTriple){
+        if (hasDouble && hasTriple) {
             return true;
         }
         return false;
