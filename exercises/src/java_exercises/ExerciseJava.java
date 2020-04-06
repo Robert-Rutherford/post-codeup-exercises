@@ -101,10 +101,22 @@ public class ExerciseJava {
 //        System.out.println(swapTwo("munchkins"));
 //        System.out.println(swapTwo("FFGGHHI"));
 
-        System.out.println(textToNum("123-647-EYES"));
-        System.out.println(textToNum("(325)444-TEST"));
-        System.out.println(textToNum("653-TRY-THIS"));
-        System.out.println(textToNum("435-224-7613"));
+//        System.out.println(textToNum("123-647-EYES"));
+//        System.out.println(textToNum("(325)444-TEST"));
+//        System.out.println(textToNum("653-TRY-THIS"));
+//        System.out.println(textToNum("435-224-7613"));
+        long num1 = 451999277;
+        long num2 = 411777228;
+        System.out.println(trouble(num1, num2));
+         num1 = 1222345;
+         num2 = 12345;
+        System.out.println(trouble(num1, num2));
+         num1 = 666789;
+         num2 = 12345667;
+        System.out.println(trouble(num1, num2));
+         num1 = 33789;
+         num2 = 12345337;
+        System.out.println(trouble(num1, num2));
 
     }
 
@@ -632,7 +644,40 @@ public static String textToNum(String phone) {
         return String.join("",numbers);
 }
 
+    //    April 6
 
+//  Problem: Triple + Double = So Much Trouble
+//    site: https://edabit.com/challenge/27h4mwAKD3hhy6onh
+//  task: Create a function that takes two integers and returns true if a number repeats three times in a row at any
+//          place in num1 AND that same number repeats two times in a row in num2.
+//    Notes
+//      You can expect every test case to contain exactly two integers.
+//
+    public static boolean trouble(long num1, long num2) {
+        String sNum1 = Long.toString(num1);
+        String sNum2 = Long.toString(num2);
+        boolean hasTriple = false;
+        boolean hasDouble = false;
+
+        String[] tripleNum = sNum1.split("");
+        String[] doubleNum = sNum2.split("");
+
+        for (int i = 0; i < tripleNum.length-2; i++){
+            if (tripleNum[i].equalsIgnoreCase(tripleNum[i+1]) && tripleNum[i].equalsIgnoreCase(tripleNum[i+2])){
+                hasTriple = true;
+            }
+        }
+        for (int i = 0; i < doubleNum.length-1;i++){
+            if (doubleNum[i].equalsIgnoreCase(doubleNum[i+1])){
+                hasDouble = true;
+            }
+        }
+
+        if (hasDouble && hasTriple){
+            return true;
+        }
+        return false;
+    }
 
 }
 
