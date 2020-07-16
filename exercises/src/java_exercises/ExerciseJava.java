@@ -117,10 +117,17 @@ public class ExerciseJava {
 //        num2 = 12345337;
 //        System.out.println(trouble(num1, num2));
 
-        System.out.println(plusSign("+f+d+c+#+f+"));
-        System.out.println(plusSign("+d+=3=+s+"));
-        System.out.println(plusSign("f++d+g+8+"));
-        System.out.println(plusSign("+s+7+fg+r+8+"));
+//        System.out.println(plusSign("+f+d+c+#+f+"));
+//        System.out.println(plusSign("+d+=3=+s+"));
+//        System.out.println(plusSign("f++d+g+8+"));
+//        System.out.println(plusSign("+s+7+fg+r+8+"));
+
+
+        System.out.println(bracketLogic("[<>()]"));
+        System.out.println(bracketLogic("[<(>)]"));
+        System.out.println(bracketLogic("[(a*b+<7-c>+9]"));
+        System.out.println(bracketLogic("[{(h*i+3)-12]/4*x+2}"));
+        System.out.println(bracketLogic("[ab(c/d<e-f+(7*6)>)+2]"));
 
 
     }
@@ -707,6 +714,87 @@ public class ExerciseJava {
             }
         }
         return true;
+    }
+
+
+    // Problem: Bracket Logic
+    // site: https://edabit.com/challenge/Cu6euwD8Mi2c7BAHd
+    // task: Brackets and parentheses in mathematical expressions have to conform to certain logical rules. Every
+    // opening bracket must have a closing mate somewhere further down the line. Although brackets can be nested,
+    // different types cannot overlap:
+    //
+    //      ([<x+y>+3]-1) makes sense because each set of brackets contains or is contained by another set.
+    //      ([<x+y>+3)-1] makes no sense because the parentheses and the square brackets overlap.
+    //
+    //Given a string expression that can contain four types of brackets: () <> [] {}, create a function that returns
+    // true if the bracket logic is valid and false if it is not.
+
+    public static boolean bracketLogic(String xp) {
+        char[] startBrackets = {'(','[','{','<'};
+        char[] endBrackets = {')',']','}','>'};
+        int priorityIndex = 0;
+        char[] currentStack = new char[10];
+        for (int i = 0; i < xp.length(); i++){
+//            open bracket case
+            boolean contains = false;
+            for (char c : startBrackets) {
+                if (c == xp.charAt(i)) {
+                    contains = true;
+                    break;
+                }
+            }
+            if (contains) {
+                currentStack[priorityIndex] = xp.charAt(i);
+                priorityIndex++;
+            }
+
+//            close bracket case
+            for (char c : endBrackets) {
+                if (c == xp.charAt(i)) {
+                    contains = true;
+                    break;
+                }
+            }
+            if (contains) {
+                if (priorityIndex == 0){
+                    return false;
+                }
+                if (xp.charAt(i) == ')'){
+                    if (currentStack[priorityIndex-1] != '('){
+                        return false;
+                    }
+                    else{
+                        priorityIndex--;
+                    }
+                }
+                if (xp.charAt(i) == ']'){
+                    if (currentStack[priorityIndex-1] != '['){
+                        return false;
+                    }
+                    else{
+                        priorityIndex--;
+                    }
+                }
+                if (xp.charAt(i) == '}'){
+                    if (currentStack[priorityIndex-1] != '{'){
+                        return false;
+                    }
+                    else{
+                        priorityIndex--;
+                    }
+                }
+                if (xp.charAt(i) == '>'){
+                    if (currentStack[priorityIndex-1] != '<'){
+                        return false;
+                    }
+                    else{
+                        priorityIndex--;
+                    }
+                }
+            }
+
+        }
+        return priorityIndex == 0;
     }
 
 
