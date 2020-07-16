@@ -123,9 +123,6 @@ public class ExerciseJava {
         System.out.println(plusSign("+s+7+fg+r+8+"));
 
 
-
-
-
     }
 
 
@@ -680,21 +677,18 @@ public class ExerciseJava {
             }
         }
 
-        if (hasDouble && hasTriple) {
-            return true;
-        }
-        return false;
+        return hasDouble && hasTriple;
     }
 
 
     /* Renewing Java Skills start-up
-    *
-    * July 16th
-    *
-    *
-    *
-    *
-    * */
+     *
+     * July 16th
+     *
+     *
+     *
+     *
+     * */
 
     // Problem: Know Your Neighbor
     // site: https://edabit.com/challenge/ka4Mk98LW4TEbcqzH
@@ -702,32 +696,18 @@ public class ExerciseJava {
     //          surrounded by a plus sign. Return false otherwise.
 
     public static boolean plusSign(String str) {
-        for (int i = 0; i < str.length(); i++){
-            if ((Character.isLetter(str.charAt(i))))
-            {
-                if ( i == 0 || str.charAt(i-1) != '+' ){
+        for (int i = 0; i < str.length(); i++) {
+            if ((Character.isLetter(str.charAt(i)))) {
+                if (i == 0 || str.charAt(i - 1) != '+') {
                     return false;
                 }
-                if (i == (str.length()-1) || str.charAt(i+1) != '+'){
+                if (i == (str.length() - 1) || str.charAt(i + 1) != '+') {
                     return false;
                 }
             }
         }
         return true;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
