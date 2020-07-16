@@ -111,8 +111,8 @@ function oddishOrEvenish(num) {
 // 
 // In baseball statistics, innings are represented with a fractional part of .1 (1/3) or .2 (2/3) to represent the number of outs in an inning. A whole number or a number with a fractional part of .0 represents a full inning with three outs. Check the Resources tab for a deeper explanation.
 //
-function era(er,ip) {
-    return (er/ip)*9;
+function era(er, ip) {
+    return (er / ip) * 9;
 }
 
 //site https://edabit.com/challenge/Fev8jkLtDunP9wexv
@@ -122,15 +122,16 @@ function era(er,ip) {
 // You will be given a string which needs to be found in another string which has previously been translated into hex. You will need to return the first index of the needle within the hex encoded string.
 function firstIndex(hex, needle) {
     let hexArray = hex.split(" ");
-    let needleIndex = needle.substring(0,1);
-    for (let i = 0; i<hexArray.length;i++){
-        let hexConvert = parseInt(hexArray[i],16);
-        if (needleIndex === String.fromCharCode(hexConvert)){
+    let needleIndex = needle.substring(0, 1);
+    for (let i = 0; i < hexArray.length; i++) {
+        let hexConvert = parseInt(hexArray[i], 16);
+        if (needleIndex === String.fromCharCode(hexConvert)) {
             return i;
         }
     }
     return 0;
 }
+
 // site https://edabit.com/challenge/WMorR7e2z3AkoesJC
 // Straight Digital Numbers
 //In this challenge, you have to establish if the digits of a given number form a straight arithmetic sequence (either increasing or decreasing). A straight sequence has an equal step between every pair of digits.
@@ -141,25 +142,25 @@ function firstIndex(hex, needle) {
 // "Trivial Straight" if n has a single repeating digit.
 // An integer being the step of the sequence if the n digits are a straight arithmetic sequence.
 function straightDigital(number) {
-    if(number < 100){
+    if (number < 100) {
         return "Not Straight";
     }
     var strNum = number.toString();
     var numSplit = strNum.split("");
     let straightArray = [];
-    for(let i = 0; i< (numSplit.length -1) ; i++ ){
-        straightArray.push(parseInt(numSplit[i+1]) - parseInt(numSplit[i]));
+    for (let i = 0; i < (numSplit.length - 1); i++) {
+        straightArray.push(parseInt(numSplit[i + 1]) - parseInt(numSplit[i]));
     }
 
-    for (let i=0; i< (straightArray.length-1);i++){
-        if(straightArray[i] !== straightArray[i+1]){
+    for (let i = 0; i < (straightArray.length - 1); i++) {
+        if (straightArray[i] !== straightArray[i + 1]) {
             return "Not Straight";
         }
     }
 
-    if (straightArray[0] === 0){
+    if (straightArray[0] === 0) {
         return "Trivial Straight";
-    }else {
+    } else {
         return straightArray[0];
     }
 

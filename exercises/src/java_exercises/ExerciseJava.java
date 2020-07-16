@@ -103,18 +103,28 @@ public class ExerciseJava {
 //        System.out.println(textToNum("(325)444-TEST"));
 //        System.out.println(textToNum("653-TRY-THIS"));
 //        System.out.println(textToNum("435-224-7613"));
-        long num1 = 451999277;
-        long num2 = 411777228;
-        System.out.println(trouble(num1, num2));
-        num1 = 1222345;
-        num2 = 12345;
-        System.out.println(trouble(num1, num2));
-        num1 = 666789;
-        num2 = 12345667;
-        System.out.println(trouble(num1, num2));
-        num1 = 33789;
-        num2 = 12345337;
-        System.out.println(trouble(num1, num2));
+
+//        long num1 = 451999277;
+//        long num2 = 411777228;
+//        System.out.println(trouble(num1, num2));
+//        num1 = 1222345;
+//        num2 = 12345;
+//        System.out.println(trouble(num1, num2));
+//        num1 = 666789;
+//        num2 = 12345667;
+//        System.out.println(trouble(num1, num2));
+//        num1 = 33789;
+//        num2 = 12345337;
+//        System.out.println(trouble(num1, num2));
+
+        System.out.println(plusSign("+f+d+c+#+f+"));
+        System.out.println(plusSign("+d+=3=+s+"));
+        System.out.println(plusSign("f++d+g+8+"));
+        System.out.println(plusSign("+s+7+fg+r+8+"));
+
+
+
+
 
     }
 
@@ -675,6 +685,50 @@ public class ExerciseJava {
         }
         return false;
     }
+
+
+    /* Renewing Java Skills start-up
+    *
+    * July 16th
+    *
+    *
+    *
+    *
+    * */
+
+    // Problem: Know Your Neighbor
+    // site: https://edabit.com/challenge/ka4Mk98LW4TEbcqzH
+    // task: Create a function that takes a string as an argument and returns true if each letter in the string is
+    //          surrounded by a plus sign. Return false otherwise.
+
+    public static boolean plusSign(String str) {
+        for (int i = 0; i < str.length(); i++){
+            if ((Character.isLetter(str.charAt(i))))
+            {
+                if ( i == 0 || str.charAt(i-1) != '+' ){
+                    return false;
+                }
+                if (i == (str.length()-1) || str.charAt(i+1) != '+'){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
