@@ -1,5 +1,7 @@
 package java_exercises;
 
+import java.sql.SQLOutput;
+
 public class ExerciseJava {
     public static void main(String[] args) {
 
@@ -123,11 +125,15 @@ public class ExerciseJava {
 //        System.out.println(plusSign("+s+7+fg+r+8+"));
 
 
-        System.out.println(bracketLogic("[<>()]"));
-        System.out.println(bracketLogic("[<(>)]"));
-        System.out.println(bracketLogic("[(a*b+<7-c>+9]"));
-        System.out.println(bracketLogic("[{(h*i+3)-12]/4*x+2}"));
-        System.out.println(bracketLogic("[ab(c/d<e-f+(7*6)>)+2]"));
+//        System.out.println(bracketLogic("[<>()]"));
+//        System.out.println(bracketLogic("[<(>)]"));
+//        System.out.println(bracketLogic("[(a*b+<7-c>+9]"));
+//        System.out.println(bracketLogic("[{(h*i+3)-12]/4*x+2}"));
+//        System.out.println(bracketLogic("[ab(c/d<e-f+(7*6)>)+2]"));
+
+        System.out.println(correctSigns("3 < 7 < 11"));
+        System.out.println(correctSigns("13 > 44 > 33 > 1"));
+        System.out.println(correctSigns("1 < 2 < 6 < 9 > 3"));
 
 
     }
@@ -797,6 +803,29 @@ public class ExerciseJava {
         return priorityIndex == 0;
     }
 
+    // Problem: Correct Inequality Signs
+    // site: https://edabit.com/challenge/vtW558tXEYFQGv27S
+    // task: Create a function that returns true if a given inequality expression is correct and false otherwise.
+    public static boolean correctSigns(String str) {
+        String array[] = str.split(" ");
+        for (int i = 0; i < array.length; i++){
+            if (array[i].equalsIgnoreCase("<")|| array[i].equalsIgnoreCase(">")){
+                int num1 = Integer.parseInt(array[i-1]);
+                int num2 = Integer.parseInt(array[i+1]);
+                if (array[i].equalsIgnoreCase("<")){
+                    if(num1 >= num2){
+                        return false;
+                    }
+                }
+                else {
+                    if(num1 <= num2){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
 
 }
 
