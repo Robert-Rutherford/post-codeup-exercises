@@ -1,7 +1,6 @@
 package java_exercises;
 
 import java.math.BigInteger;
-import java.sql.SQLOutput;
 
 public class ExerciseJava {
     public static void main(String[] args) {
@@ -742,11 +741,11 @@ public class ExerciseJava {
     // true if the bracket logic is valid and false if it is not.
 
     public static boolean bracketLogic(String xp) {
-        char[] startBrackets = {'(','[','{','<'};
-        char[] endBrackets = {')',']','}','>'};
+        char[] startBrackets = {'(', '[', '{', '<'};
+        char[] endBrackets = {')', ']', '}', '>'};
         int priorityIndex = 0;
         char[] currentStack = new char[10];
-        for (int i = 0; i < xp.length(); i++){
+        for (int i = 0; i < xp.length(); i++) {
 //            open bracket case
             boolean contains = false;
             for (char c : startBrackets) {
@@ -768,38 +767,34 @@ public class ExerciseJava {
                 }
             }
             if (contains) {
-                if (priorityIndex == 0){
+                if (priorityIndex == 0) {
                     return false;
                 }
-                if (xp.charAt(i) == ')'){
-                    if (currentStack[priorityIndex-1] != '('){
+                if (xp.charAt(i) == ')') {
+                    if (currentStack[priorityIndex - 1] != '(') {
                         return false;
-                    }
-                    else{
+                    } else {
                         priorityIndex--;
                     }
                 }
-                if (xp.charAt(i) == ']'){
-                    if (currentStack[priorityIndex-1] != '['){
+                if (xp.charAt(i) == ']') {
+                    if (currentStack[priorityIndex - 1] != '[') {
                         return false;
-                    }
-                    else{
+                    } else {
                         priorityIndex--;
                     }
                 }
-                if (xp.charAt(i) == '}'){
-                    if (currentStack[priorityIndex-1] != '{'){
+                if (xp.charAt(i) == '}') {
+                    if (currentStack[priorityIndex - 1] != '{') {
                         return false;
-                    }
-                    else{
+                    } else {
                         priorityIndex--;
                     }
                 }
-                if (xp.charAt(i) == '>'){
-                    if (currentStack[priorityIndex-1] != '<'){
+                if (xp.charAt(i) == '>') {
+                    if (currentStack[priorityIndex - 1] != '<') {
                         return false;
-                    }
-                    else{
+                    } else {
                         priorityIndex--;
                     }
                 }
@@ -813,18 +808,17 @@ public class ExerciseJava {
     // site: https://edabit.com/challenge/vtW558tXEYFQGv27S
     // task: Create a function that returns true if a given inequality expression is correct and false otherwise.
     public static boolean correctSigns(String str) {
-        String array[] = str.split(" ");
-        for (int i = 0; i < array.length; i++){
-            if (array[i].equalsIgnoreCase("<")|| array[i].equalsIgnoreCase(">")){
-                int num1 = Integer.parseInt(array[i-1]);
-                int num2 = Integer.parseInt(array[i+1]);
-                if (array[i].equalsIgnoreCase("<")){
-                    if(num1 >= num2){
+        String[] array = str.split(" ");
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equalsIgnoreCase("<") || array[i].equalsIgnoreCase(">")) {
+                int num1 = Integer.parseInt(array[i - 1]);
+                int num2 = Integer.parseInt(array[i + 1]);
+                if (array[i].equalsIgnoreCase("<")) {
+                    if (num1 >= num2) {
                         return false;
                     }
-                }
-                else {
-                    if(num1 <= num2){
+                } else {
+                    if (num1 <= num2) {
                         return false;
                     }
                 }
@@ -843,23 +837,21 @@ public class ExerciseJava {
     //          Your function doesn't have to add negative numbers.
     //      Bonus: Don't use BigInteger or BigDecimal classes.
     public static String addStrNums(String num1, String num2) {
-        if(num1.length() ==0 || num2.length() == 0){
-            if (num1.length() == 0 && isNumeric(num2)){
+        if (num1.length() == 0 || num2.length() == 0) {
+            if (num1.length() == 0 && isNumeric(num2)) {
                 return num2;
-            }
-            else if (num2.length() == 0 && isNumeric(num1)){
+            } else if (num2.length() == 0 && isNumeric(num1)) {
                 return num1;
-            }
-            else {
+            } else {
                 return "-1";
             }
         }
-        if (!isNumeric(num1) || !isNumeric(num2)){
+        if (!isNumeric(num1) || !isNumeric(num2)) {
             return "-1";
         }
         BigInteger number1 = new BigInteger(num1);
         BigInteger number2 = new BigInteger(num2);
-        BigInteger sum =  number1.add(number2);
+        BigInteger sum = number1.add(number2);
 
         return sum.toString();
     }
@@ -880,6 +872,8 @@ public class ExerciseJava {
         return true;
 
     }
+
+
 
 
 }
