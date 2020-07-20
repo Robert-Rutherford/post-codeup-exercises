@@ -135,10 +135,20 @@ public class ExerciseJava {
 //        System.out.println(correctSigns("13 > 44 > 33 > 1"));
 //        System.out.println(correctSigns("1 < 2 < 6 < 9 > 3"));
 
-        System.out.println(addStrNums("4", "5"));
-        System.out.println(addStrNums("abcdefg", "3"));
-        System.out.println(addStrNums("1", ""));
-        System.out.println(addStrNums("1874682736267235927359283579235789257", "32652983572985729"));
+//        System.out.println(addStrNums("4", "5"));
+//        System.out.println(addStrNums("abcdefg", "3"));
+//        System.out.println(addStrNums("1", ""));
+//        System.out.println(addStrNums("1874682736267235927359283579235789257", "32652983572985729"));
+        int[] arr = new int[] {1, 2, 3, 10, 11, 15};
+        System.out.println(longestRun(arr));
+        arr = new int[] {5, 4, 2, 1};
+        System.out.println(longestRun(arr));
+        arr = new int[] {3, 5, 7, 10, 15};
+        System.out.println(longestRun(arr));
+        arr = new int[] {1, 2, 3, 5, 6, 7, 8, 9};
+        System.out.println(longestRun(arr));
+        arr = new int[] {3, 2, 1, 2, 3, 4, 5};
+        System.out.println(longestRun(arr));
 
 
     }
@@ -873,7 +883,62 @@ public class ExerciseJava {
 
     }
 
+    // Problem: Longest Consecutive Run
+    // site: https://edabit.com/challenge/NwSd26PwgggJquov3
+    // task: A consecutive-run is a list of adjacent, consecutive integers. This list can be either increasing or
+    // decreasing. Create a function that takes an array of numbers and returns the length of the longest
+    // consecutive-run.
+    //
+    //To illustrate:
+    //
+    //      longestRun([1, 2, 3, 5, 6, 7, 8, 9]) ➞ 5
+    //      // Two consecutive runs: [1, 2, 3] and [5, 6, 7, 8, 9] (longest).
+    //
+    // Note: If there aren't any consecutive runs (there is a gap between each integer), return 1.
+    public static int longestRun(int[] arr) {
+        int consecutive = 1;
+        int counter = 1;
+        boolean start = true;
+        boolean first = true;
+        boolean positive = true;
+        boolean lastpositive = true;
+        for (int i = 0; i < arr.length-1; i++){
+            if (arr[i] + 1 == arr[i+1] || arr[i]-1 == arr[i+1]){
+                positive = arr[i] + 1 == arr[i + 1];
+                if (start){
+                    // reset
+                    lastpositive = positive;
+                    counter = 2;
+                    start = false;
+                }else {
+                    if (lastpositive == positive){
+                        counter++;
+                    }else {
+                        if (consecutive < counter){
+                            consecutive = counter;
+                        }
+                        // reset
+                        lastpositive = positive;
+                        counter = 2;
+                    }
+                }
+            }
+            else {
+                start = true;
+                if (consecutive < counter){
+                    consecutive = counter;
+                }
 
+            }
+        }
+        if (!start) {
+            if (consecutive < counter) {
+                consecutive = counter;
+            }
+        }
+
+        return consecutive;
+    }
 
 
 }
