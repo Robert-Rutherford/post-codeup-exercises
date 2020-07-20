@@ -1,5 +1,6 @@
 package java_exercises;
 
+import java.math.BigInteger;
 import java.sql.SQLOutput;
 
 public class ExerciseJava {
@@ -131,9 +132,14 @@ public class ExerciseJava {
 //        System.out.println(bracketLogic("[{(h*i+3)-12]/4*x+2}"));
 //        System.out.println(bracketLogic("[ab(c/d<e-f+(7*6)>)+2]"));
 
-        System.out.println(correctSigns("3 < 7 < 11"));
-        System.out.println(correctSigns("13 > 44 > 33 > 1"));
-        System.out.println(correctSigns("1 < 2 < 6 < 9 > 3"));
+//        System.out.println(correctSigns("3 < 7 < 11"));
+//        System.out.println(correctSigns("13 > 44 > 33 > 1"));
+//        System.out.println(correctSigns("1 < 2 < 6 < 9 > 3"));
+
+        System.out.println(addStrNums("4", "5"));
+        System.out.println(addStrNums("abcdefg", "3"));
+        System.out.println(addStrNums("1", ""));
+        System.out.println(addStrNums("1874682736267235927359283579235789257", "32652983572985729"));
 
 
     }
@@ -826,6 +832,55 @@ public class ExerciseJava {
         }
         return true;
     }
+
+
+    // Problem: Add Two String Numbers
+    // site: https://edabit.com/challenge/QwGgDuvWtFmDTeRHw
+    // task: Write a function that adds two numbers. The catch, however, is that the numbers will be strings.
+    // Notes: If there are any non-numerical characters, return "-1".
+    //          If one option is blank the code should still work.
+    //          Your function should be able to add any size number.
+    //          Your function doesn't have to add negative numbers.
+    //      Bonus: Don't use BigInteger or BigDecimal classes.
+    public static String addStrNums(String num1, String num2) {
+        if(num1.length() ==0 || num2.length() == 0){
+            if (num1.length() == 0 && isNumeric(num2)){
+                return num2;
+            }
+            else if (num2.length() == 0 && isNumeric(num1)){
+                return num1;
+            }
+            else {
+                return "-1";
+            }
+        }
+        if (!isNumeric(num1) || !isNumeric(num2)){
+            return "-1";
+        }
+        BigInteger number1 = new BigInteger(num1);
+        BigInteger number2 = new BigInteger(num2);
+        BigInteger sum =  number1.add(number2);
+
+        return sum.toString();
+    }
+
+    private static boolean isNumeric(final String str) {
+
+        // null or empty
+        if (str == null || str.length() == 0) {
+            return false;
+        }
+
+        for (char c : str.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+        }
+
+        return true;
+
+    }
+
 
 }
 
