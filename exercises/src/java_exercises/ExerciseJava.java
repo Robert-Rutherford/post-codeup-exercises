@@ -907,19 +907,19 @@ public class ExerciseJava {
         boolean first = true;
         boolean positive = true;
         boolean lastpositive = true;
-        for (int i = 0; i < arr.length-1; i++){
-            if (arr[i] + 1 == arr[i+1] || arr[i]-1 == arr[i+1]){
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] + 1 == arr[i + 1] || arr[i] - 1 == arr[i + 1]) {
                 positive = arr[i] + 1 == arr[i + 1];
-                if (start){
+                if (start) {
                     // reset
                     lastpositive = positive;
                     counter = 2;
                     start = false;
-                }else {
-                    if (lastpositive == positive){
+                } else {
+                    if (lastpositive == positive) {
                         counter++;
-                    }else {
-                        if (consecutive < counter){
+                    } else {
+                        if (consecutive < counter) {
                             consecutive = counter;
                         }
                         // reset
@@ -927,10 +927,9 @@ public class ExerciseJava {
                         counter = 2;
                     }
                 }
-            }
-            else {
+            } else {
                 start = true;
-                if (consecutive < counter){
+                if (consecutive < counter) {
                     consecutive = counter;
                 }
 
@@ -954,25 +953,24 @@ public class ExerciseJava {
     //  If the string doesn't end with a number, 1 should be added to the new string.
     //  If the number has leading zeros, the amount of digits should be considered.
     public static String incrementString(String str) {
-        if (!Character.isDigit(str.charAt(str.length()-1))){
+        if (!Character.isDigit(str.charAt(str.length() - 1))) {
             return str + "1";
         }
         int digitLength = 0;
-        for (int i = str.length()-1; i >= 0 ; i--){
-            if(Character.isDigit(str.charAt(i))){
+        for (int i = str.length() - 1; i >= 0; i--) {
+            if (Character.isDigit(str.charAt(i))) {
                 digitLength++;
-            }
-            else{
-                String numberSub = str.substring(str.length()-digitLength);
+            } else {
+                String numberSub = str.substring(str.length() - digitLength);
                 int add = Integer.parseInt(numberSub) + 1;
                 StringBuilder newNumber = new StringBuilder(Integer.toString(add));
-                if(newNumber.length() < numberSub.length()){
+                if (newNumber.length() < numberSub.length()) {
                     int zeros = numberSub.length() - newNumber.length();
-                    for (int j = 0; j < zeros; j++){
+                    for (int j = 0; j < zeros; j++) {
                         newNumber.insert(0, "0");
                     }
                 }
-                return str.substring(0,str.length()-digitLength) + newNumber;
+                return str.substring(0, str.length() - digitLength) + newNumber;
             }
         }
         return "error";
