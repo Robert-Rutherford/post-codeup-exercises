@@ -139,16 +139,21 @@ public class ExerciseJava {
 //        System.out.println(addStrNums("abcdefg", "3"));
 //        System.out.println(addStrNums("1", ""));
 //        System.out.println(addStrNums("1874682736267235927359283579235789257", "32652983572985729"));
-        int[] arr = new int[] {1, 2, 3, 10, 11, 15};
-        System.out.println(longestRun(arr));
-        arr = new int[] {5, 4, 2, 1};
-        System.out.println(longestRun(arr));
-        arr = new int[] {3, 5, 7, 10, 15};
-        System.out.println(longestRun(arr));
-        arr = new int[] {1, 2, 3, 5, 6, 7, 8, 9};
-        System.out.println(longestRun(arr));
-        arr = new int[] {3, 2, 1, 2, 3, 4, 5};
-        System.out.println(longestRun(arr));
+
+//        int[] arr = new int[] {1, 2, 3, 10, 11, 15};
+//        System.out.println(longestRun(arr));
+//        arr = new int[] {5, 4, 2, 1};
+//        System.out.println(longestRun(arr));
+//        arr = new int[] {3, 5, 7, 10, 15};
+//        System.out.println(longestRun(arr));
+//        arr = new int[] {1, 2, 3, 5, 6, 7, 8, 9};
+//        System.out.println(longestRun(arr));
+//        arr = new int[] {3, 2, 1, 2, 3, 4, 5};
+//        System.out.println(longestRun(arr));
+
+        System.out.println(incrementString("foo"));
+        System.out.println(incrementString("foobar0009"));
+        System.out.println(incrementString("foo099"));
 
 
     }
@@ -938,6 +943,39 @@ public class ExerciseJava {
         }
 
         return consecutive;
+    }
+
+
+    // Problem: String Incrementer
+    // site: https://edabit.com/challenge/iqEb9gZi2jgNR99At
+    // task: Write a function which increments a string to create a new string.
+    //
+    //  If the string ends with a number, the number should be incremented by 1.
+    //  If the string doesn't end with a number, 1 should be added to the new string.
+    //  If the number has leading zeros, the amount of digits should be considered.
+    public static String incrementString(String str) {
+        if (!Character.isDigit(str.charAt(str.length()-1))){
+            return str + "1";
+        }
+        int digitLength = 0;
+        for (int i = str.length()-1; i >= 0 ; i--){
+            if(Character.isDigit(str.charAt(i))){
+                digitLength++;
+            }
+            else{
+                String numberSub = str.substring(str.length()-digitLength);
+                int add = Integer.parseInt(numberSub) + 1;
+                StringBuilder newNumber = new StringBuilder(Integer.toString(add));
+                if(newNumber.length() < numberSub.length()){
+                    int zeros = numberSub.length() - newNumber.length();
+                    for (int j = 0; j < zeros; j++){
+                        newNumber.insert(0, "0");
+                    }
+                }
+                return str.substring(0,str.length()-digitLength) + newNumber;
+            }
+        }
+        return "error";
     }
 
 
