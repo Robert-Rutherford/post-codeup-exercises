@@ -976,6 +976,23 @@ public class ExerciseJava {
         return "error";
     }
 
+    // Problem: Minimum Swaps to Alternate a Binary String
+    // site: https://edabit.com/challenge/EiemTcctcJXCn6eJa
+    // task: Write a function that returns the minimum number of swaps to create an alternating binary string.
+    // The input will have the same number of zeroes and ones.
+    public static int minSwaps(String str) {
+        char[] numbers = str.toCharArray();
+        int switches = 0;
+        boolean switch1s = false;
+        boolean switch0s = false;
+        for (int i = 0; i < numbers.length; i++){
+
+        }
+
+
+
+        return switches;
+    }
 
 }
 
