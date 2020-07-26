@@ -151,9 +151,13 @@ public class ExerciseJava {
 //        arr = new int[] {3, 2, 1, 2, 3, 4, 5};
 //        System.out.println(longestRun(arr));
 
-        System.out.println(incrementString("foo"));
-        System.out.println(incrementString("foobar0009"));
-        System.out.println(incrementString("foo099"));
+//        System.out.println(incrementString("foo"));
+//        System.out.println(incrementString("foobar0009"));
+//        System.out.println(incrementString("foo099"));
+
+        System.out.println(minSwaps("101010"));
+        System.out.println(minSwaps("10001110"));
+        System.out.println(minSwaps("11110000"));
 
 
     }
@@ -982,16 +986,31 @@ public class ExerciseJava {
     // The input will have the same number of zeroes and ones.
     public static int minSwaps(String str) {
         char[] numbers = str.toCharArray();
-        int switches = 0;
-        boolean switch1s = false;
-        boolean switch0s = false;
-        for (int i = 0; i < numbers.length; i++){
-
+        boolean zeroTurn = false;
+        char[] switchChars = new char[numbers.length];
+        if (numbers[0] == '0'){
+            zeroTurn = true;
+        }
+        for (int i = 1; i < numbers.length; i++){
+            if ((numbers[i] == '0' && zeroTurn) || (numbers[i] == '1' && !zeroTurn)){
+                switchChars[i] = numbers[i];
+            }
+            zeroTurn = !zeroTurn;
         }
 
+        int zeros = 0;
+        int ones = 0;
+        for (char switchChar : switchChars) {
+            if (switchChar == '0') {
+                zeros++;
+            }
+            if (switchChar == '1') {
+                ones++;
+            }
+        }
 
-
-        return switches;
+        // ones and zeros should match but just in case
+        return Math.max(zeros, ones);
     }
 
 }
