@@ -155,9 +155,15 @@ public class ExerciseJava {
 //        System.out.println(incrementString("foobar0009"));
 //        System.out.println(incrementString("foo099"));
 
-        System.out.println(minSwaps("101010"));
-        System.out.println(minSwaps("10001110"));
-        System.out.println(minSwaps("11110000"));
+//        System.out.println(minSwaps("101010"));
+//        System.out.println(minSwaps("10001110"));
+//        System.out.println(minSwaps("11110000"));
+
+        System.out.println(sameLetterPattern("ABAB", "CDCD"));
+        System.out.println(sameLetterPattern("ABCBA", "BCDCB"));
+        System.out.println(sameLetterPattern("FFGG", "CDCD"));
+        System.out.println(sameLetterPattern("FFFF", "ABCD"));
+
 
 
     }
@@ -1011,6 +1017,70 @@ public class ExerciseJava {
 
         // ones and zeros should match but just in case
         return Math.max(zeros, ones);
+    }
+
+    // Problem: Same Letter Patterns
+    // site: https://edabit.com/challenge/DhwkubnGy7mwZ2xt9
+    // task: Create a function that returns true if two strings share the same letter pattern, and false otherwise.
+    public static boolean sameLetterPattern(String str1, String str2) {
+        char[] group1 = str1.toCharArray();
+        char[] group2 = str2.toCharArray();
+        if (group1.length != group2.length){
+            return false;
+        }
+
+        char[] patternCoder = new char[group1.length];
+        int[] numPattern1 = new int[group1.length];
+        int index = 0;
+
+        for (int i = 0; i < group1.length; i++){
+            if(i == 0){
+                patternCoder[0] = group1[0];
+                index++;
+                numPattern1[0] = 0;
+            }else {
+                int indexHunt1 = new String(patternCoder).indexOf(group1[i]);
+                if (indexHunt1 == -1){
+                      patternCoder[index] = group1[i];
+                      numPattern1[i] = index;
+                      index++;
+                  }
+                  else {
+                      numPattern1[i] = indexHunt1;
+                  }
+            }
+        }
+
+        patternCoder = new char[group2.length];
+        int[] numPattern2 = new int[group2.length];
+        index = 0;
+
+        for (int i = 0; i < group2.length; i++){
+            if(i == 0){
+                patternCoder[0] = group2[0];
+                index++;
+                numPattern2[0] = 0;
+            }else {
+                int indexHunt2 = new String(patternCoder).indexOf(group2[i]);
+                if (indexHunt2 == -1){
+                    patternCoder[index] = group2[i];
+                    numPattern2[i] = index;
+                    index++;
+                }
+                else {
+                    numPattern2[i] = indexHunt2;
+                }
+            }
+        }
+
+        for (int i = 0; i< numPattern1.length; i++){
+            if (numPattern1[i] != numPattern2[i]){
+                return false;
+            }
+        }
+
+
+        return true;
     }
 
 }
