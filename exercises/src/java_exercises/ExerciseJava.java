@@ -1033,6 +1033,25 @@ public class ExerciseJava {
         int[] numPattern1 = new int[group1.length];
         int index = 0;
 
+        createPatternArray(group1, patternCoder, numPattern1, index);
+
+        patternCoder = new char[group2.length];
+        int[] numPattern2 = new int[group2.length];
+        index = 0;
+
+        createPatternArray(group2, patternCoder, numPattern2, index);
+
+        for (int i = 0; i< numPattern1.length; i++){
+            if (numPattern1[i] != numPattern2[i]){
+                return false;
+            }
+        }
+
+
+        return true;
+    }
+
+    private static void createPatternArray(char[] group1, char[] patternCoder, int[] numPattern1, int index) {
         for (int i = 0; i < group1.length; i++){
             if(i == 0){
                 patternCoder[0] = group1[0];
@@ -1050,37 +1069,6 @@ public class ExerciseJava {
                   }
             }
         }
-
-        patternCoder = new char[group2.length];
-        int[] numPattern2 = new int[group2.length];
-        index = 0;
-
-        for (int i = 0; i < group2.length; i++){
-            if(i == 0){
-                patternCoder[0] = group2[0];
-                index++;
-                numPattern2[0] = 0;
-            }else {
-                int indexHunt2 = new String(patternCoder).indexOf(group2[i]);
-                if (indexHunt2 == -1){
-                    patternCoder[index] = group2[i];
-                    numPattern2[i] = index;
-                    index++;
-                }
-                else {
-                    numPattern2[i] = indexHunt2;
-                }
-            }
-        }
-
-        for (int i = 0; i< numPattern1.length; i++){
-            if (numPattern1[i] != numPattern2[i]){
-                return false;
-            }
-        }
-
-
-        return true;
     }
 
 }
