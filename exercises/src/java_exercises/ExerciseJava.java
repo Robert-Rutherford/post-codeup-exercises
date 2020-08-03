@@ -1071,6 +1071,36 @@ public class ExerciseJava {
         }
     }
 
+
+    // Problem: Growing and Shrinking Potions
+    // site: https://edabit.com/challenge/rEuWBDwABDMo2rTSt
+    // task: There are two types of potions:
+    //
+    //Growing potion: "A"
+    //Shrinking potion: "B"
+    //If "A" immediately follows a digit, add 1 to the digit.
+    //If "B" immediately follows a digit, subtract 1 from the digit.
+    //Create a function that returns a string according to these rules, removing the potions once they've been consumed.
+    public static String afterPotion(String str) {
+        int potionCount = 0;
+        char[] altered = str.toCharArray();
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.toUpperCase(str.charAt(i)) == 'A' && i != 0){
+                altered[i-1] = (char) (Character.getNumericValue(str.charAt(i-1)) + 1);
+                potionCount++;
+            }
+            else if (Character.toUpperCase(str.charAt(i)) == 'B' && i != 0){
+                altered[i-1] = (char) (Character.getNumericValue(str.charAt(i-1)) - 1);
+                potionCount++;
+            }
+        }
+        char[] updated =;
+
+        return "";
+    }
+
+
+
 }
 
 
