@@ -159,12 +159,15 @@ public class ExerciseJava {
 //        System.out.println(minSwaps("10001110"));
 //        System.out.println(minSwaps("11110000"));
 
-        System.out.println(sameLetterPattern("ABAB", "CDCD"));
-        System.out.println(sameLetterPattern("ABCBA", "BCDCB"));
-        System.out.println(sameLetterPattern("FFGG", "CDCD"));
-        System.out.println(sameLetterPattern("FFFF", "ABCD"));
+//        System.out.println(sameLetterPattern("ABAB", "CDCD"));
+//        System.out.println(sameLetterPattern("ABCBA", "BCDCB"));
+//        System.out.println(sameLetterPattern("FFGG", "CDCD"));
+//        System.out.println(sameLetterPattern("FFFF", "ABCD"));
 
-
+        System.out.println(afterPotion("3A78B51"));
+        System.out.println(afterPotion("9999B"));
+        System.out.println(afterPotion("9A123"));
+        System.out.println(afterPotion("567"));
 
     }
 
@@ -1094,9 +1097,15 @@ public class ExerciseJava {
                 potionCount++;
             }
         }
-        char[] updated =;
-
-        return "";
+        char[] updated = new char[str.length()-potionCount];
+        int index = 0;
+        for (char c : altered) {
+            if (Character.isDigit(c)) {
+                updated[index] = c;
+                index++;
+            }
+        }
+        return new String(updated);
     }
 
 
