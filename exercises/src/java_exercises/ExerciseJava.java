@@ -997,11 +997,11 @@ public class ExerciseJava {
         char[] numbers = str.toCharArray();
         boolean zeroTurn = false;
         char[] switchChars = new char[numbers.length];
-        if (numbers[0] == '0'){
+        if (numbers[0] == '0') {
             zeroTurn = true;
         }
-        for (int i = 1; i < numbers.length; i++){
-            if ((numbers[i] == '0' && zeroTurn) || (numbers[i] == '1' && !zeroTurn)){
+        for (int i = 1; i < numbers.length; i++) {
+            if ((numbers[i] == '0' && zeroTurn) || (numbers[i] == '1' && !zeroTurn)) {
                 switchChars[i] = numbers[i];
             }
             zeroTurn = !zeroTurn;
@@ -1028,7 +1028,7 @@ public class ExerciseJava {
     public static boolean sameLetterPattern(String str1, String str2) {
         char[] group1 = str1.toCharArray();
         char[] group2 = str2.toCharArray();
-        if (group1.length != group2.length){
+        if (group1.length != group2.length) {
             return false;
         }
 
@@ -1044,8 +1044,8 @@ public class ExerciseJava {
 
         createPatternArray(group2, patternCoder, numPattern2, index);
 
-        for (int i = 0; i< numPattern1.length; i++){
-            if (numPattern1[i] != numPattern2[i]){
+        for (int i = 0; i < numPattern1.length; i++) {
+            if (numPattern1[i] != numPattern2[i]) {
                 return false;
             }
         }
@@ -1055,21 +1055,20 @@ public class ExerciseJava {
     }
 
     private static void createPatternArray(char[] group1, char[] patternCoder, int[] numPattern1, int index) {
-        for (int i = 0; i < group1.length; i++){
-            if(i == 0){
+        for (int i = 0; i < group1.length; i++) {
+            if (i == 0) {
                 patternCoder[0] = group1[0];
                 index++;
                 numPattern1[0] = 0;
-            }else {
+            } else {
                 int indexHunt1 = new String(patternCoder).indexOf(group1[i]);
-                if (indexHunt1 == -1){
-                      patternCoder[index] = group1[i];
-                      numPattern1[i] = index;
-                      index++;
-                  }
-                  else {
-                      numPattern1[i] = indexHunt1;
-                  }
+                if (indexHunt1 == -1) {
+                    patternCoder[index] = group1[i];
+                    numPattern1[i] = index;
+                    index++;
+                } else {
+                    numPattern1[i] = indexHunt1;
+                }
             }
         }
     }
@@ -1108,14 +1107,13 @@ public class ExerciseJava {
 //        }
 //        return new String(updated);
 //        Attempt 2
-        for (int i=0; i < altered.length; i++){
+        for (int i = 0; i < altered.length; i++) {
             if ((Character.toUpperCase(str.charAt(i)) == 'A' || Character.toUpperCase(str.charAt(i)) == 'B') && i != 0) {
                 potionCount++;
             }
         }
-
+        return "";
     }
-
 
 
 }
