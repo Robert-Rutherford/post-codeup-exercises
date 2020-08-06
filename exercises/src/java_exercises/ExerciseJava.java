@@ -1087,25 +1087,33 @@ public class ExerciseJava {
     public static String afterPotion(String str) {
         int potionCount = 0;
         char[] altered = str.toCharArray();
-        for (int i = 0; i < str.length(); i++) {
-            if (Character.toUpperCase(str.charAt(i)) == 'A' && i != 0){
-                altered[i-1] = (char) (Character.getNumericValue(str.charAt(i-1)) + 1);
-                potionCount++;
-            }
-            else if (Character.toUpperCase(str.charAt(i)) == 'B' && i != 0){
-                altered[i-1] = (char) (Character.getNumericValue(str.charAt(i-1)) - 1);
+//        Attempt 1
+//        for (int i = 0; i < str.length(); i++) {
+//            if (Character.toUpperCase(str.charAt(i)) == 'A' && i != 0){
+//                altered[i-1] = (char) (Character.getNumericValue(str.charAt(i-1)) + 1);
+//                potionCount++;
+//            }
+//            else if (Character.toUpperCase(str.charAt(i)) == 'B' && i != 0){
+//                altered[i-1] = (char) (Character.getNumericValue(str.charAt(i-1)) - 1);
+//                potionCount++;
+//            }
+//        }
+//        char[] updated = new char[str.length()-potionCount];
+//        int index = 0;
+//        for (char c : altered) {
+//            if (Character.isDigit(c)) {
+//                updated[index] = c;
+//                index++;
+//            }
+//        }
+//        return new String(updated);
+//        Attempt 2
+        for (int i=0; i < altered.length; i++){
+            if ((Character.toUpperCase(str.charAt(i)) == 'A' || Character.toUpperCase(str.charAt(i)) == 'B') && i != 0) {
                 potionCount++;
             }
         }
-        char[] updated = new char[str.length()-potionCount];
-        int index = 0;
-        for (char c : altered) {
-            if (Character.isDigit(c)) {
-                updated[index] = c;
-                index++;
-            }
-        }
-        return new String(updated);
+
     }
 
 
