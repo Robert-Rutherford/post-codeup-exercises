@@ -164,10 +164,14 @@ public class ExerciseJava {
 //        System.out.println(sameLetterPattern("FFGG", "CDCD"));
 //        System.out.println(sameLetterPattern("FFFF", "ABCD"));
 
-        System.out.println(afterPotion("3A78B51"));
-        System.out.println(afterPotion("9999B"));
-        System.out.println(afterPotion("9A123"));
-        System.out.println(afterPotion("567"));
+//        System.out.println(afterPotion("3A78B51"));
+//        System.out.println(afterPotion("9999B"));
+//        System.out.println(afterPotion("9A123"));
+//        System.out.println(afterPotion("567"));
+
+        System.out.println(rectangles(1));
+        System.out.println(rectangles(2));
+        System.out.println(rectangles(3));
 
     }
 
@@ -1113,6 +1117,17 @@ public class ExerciseJava {
             }
         }
         return "";
+    }
+
+    // Problem: How Many Rectangles?
+    // site: https://edabit.com/challenge/LyytqgmYKzCgBGbxE
+    // task: Create a function that takes a number steps as an argument and returns the amount of rectangles
+    // you can count in a matrix.
+    public static int rectangles(int step) {
+        double function = (step*(step+1))/2;
+        double total = Math.pow(function,2);
+
+        return (int) Math.round(total);
     }
 
 
