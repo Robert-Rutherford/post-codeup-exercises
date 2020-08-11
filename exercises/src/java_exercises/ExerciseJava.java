@@ -169,9 +169,15 @@ public class ExerciseJava {
 //        System.out.println(afterPotion("9A123"));
 //        System.out.println(afterPotion("567"));
 
-        System.out.println(rectangles(1));
-        System.out.println(rectangles(2));
-        System.out.println(rectangles(3));
+//        System.out.println(rectangles(1));
+//        System.out.println(rectangles(2));
+//        System.out.println(rectangles(3));
+
+        System.out.println(noYelling("What went wrong?????????"));
+        System.out.println(noYelling("Oh my goodness!!!"));
+        System.out.println(noYelling("I just!!! can!!! not!!! believe!!! it!!!"));
+        System.out.println(noYelling("Oh my goodness!"));
+        System.out.println(noYelling("I just cannot believe it."));
 
     }
 
@@ -1130,6 +1136,32 @@ public class ExerciseJava {
         return (int) Math.round(total);
     }
 
+    // Problem: No Yelling
+    // site: https://edabit.com/challenge/33tRK98geLPcf73PF
+    // task: Create a function that transforms sentences ending with multiple question marks ? or exclamation marks !
+    // into a sentence only ending with one without changing punctuation in the middle of the sentences.
+    // notes: Only change ending punctuation - keep the exclamation marks or question marks in the middle of the
+    //          sentence the same (see third example).
+    //        Don't worry about mixed punctuation (no cases that end in something like ?!??!).
+    //        Keep sentences that do not have question/exclamation marks the same.
+    public static String noYelling(String phrase) {
+        char[] letters = phrase.toCharArray();
+        boolean endYell = true;
+        int yellCount = 0;
+        for (int i = letters.length-1; i > 0; i--){
+            if (letters[i] == '!' || letters[i] == '?' && endYell){
+                yellCount++;
+            }else{
+                endYell = false;
+            }
+        }
+        if (yellCount != 0){
+            yellCount--;
+        }
+        char[] edit = new char[letters.length-yellCount];
+        System.arraycopy(letters, 0, edit, 0, edit.length);
+        return new String(edit);
+    }
 
 }
 
