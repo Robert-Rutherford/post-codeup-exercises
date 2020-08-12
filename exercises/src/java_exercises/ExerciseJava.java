@@ -173,11 +173,15 @@ public class ExerciseJava {
 //        System.out.println(rectangles(2));
 //        System.out.println(rectangles(3));
 
-        System.out.println(noYelling("What went wrong?????????"));
-        System.out.println(noYelling("Oh my goodness!!!"));
-        System.out.println(noYelling("I just!!! can!!! not!!! believe!!! it!!!"));
-        System.out.println(noYelling("Oh my goodness!"));
-        System.out.println(noYelling("I just cannot believe it."));
+//        System.out.println(noYelling("What went wrong?????????"));
+//        System.out.println(noYelling("Oh my goodness!!!"));
+//        System.out.println(noYelling("I just!!! can!!! not!!! believe!!! it!!!"));
+//        System.out.println(noYelling("Oh my goodness!"));
+//        System.out.println(noYelling("I just cannot believe it."));
+
+        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2",null));
+        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2",new String[]{"b"}));
+        System.out.println(stripUrlParams("https://edabit.com", new String[]{"b"}));
 
     }
 
@@ -1161,6 +1165,48 @@ public class ExerciseJava {
         char[] edit = new char[letters.length-yellCount];
         System.arraycopy(letters, 0, edit, 0, edit.length);
         return new String(edit);
+    }
+
+    // Problem: Strip URL Query Parameters
+    // site: https://edabit.com/challenge/W7juRdtzze5ZbrfbJ
+    // task: Create a function that takes a URL (string), removes duplicate query parameters and parameters specified
+    // within the 2nd argument (which will be an optional array).
+    //Notes: The 2nd argument paramsToStrip is optional.
+    //paramsToStrip can contain multiple params.
+    //If there are duplicate query parameters with different values, use the value of the last occurring parameter
+    // (see examples #1 and #2 above).
+    public static String stripUrlParams(String url, String[] paramsToStrip) {
+        int queryIndexStart = url.indexOf('?');
+        if (queryIndexStart == -1){
+            return url;
+        }
+        String[] variableName = new String[10];
+        int nameIndex = 0;
+        String[] variableValue = new String[10];
+        String variables = url.substring(queryIndexStart);
+        if (variables.length() == 1){
+            return url.substring(0,queryIndexStart);
+        }
+        String variable = "";
+//        quicker way with for substrings but will use for loop for now
+        for (int i = 1; i < variables.length(); i++){
+            if (variables.charAt(i) == '='){
+                variableName[nameIndex] = variable;
+                variable = "";
+            }else if (variables.charAt(i) == '&'){
+                variableValue[nameIndex] = variable;
+                variable = "";
+                nameIndex++;
+            }else {
+                variable = variable + variables.charAt(i);
+            }
+        }
+
+//        check for duplacates
+
+
+
+        return "";
     }
 
 }
