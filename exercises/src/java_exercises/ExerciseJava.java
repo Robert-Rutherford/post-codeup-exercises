@@ -1,7 +1,6 @@
 package java_exercises;
 
 import java.math.BigInteger;
-import java.util.Arrays;
 
 public class ExerciseJava {
     public static void main(String[] args) {
@@ -180,8 +179,8 @@ public class ExerciseJava {
 //        System.out.println(noYelling("Oh my goodness!"));
 //        System.out.println(noYelling("I just cannot believe it."));
 
-        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2",null));
-        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2",new String[]{"b"}));
+        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2", null));
+        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2", new String[]{"b"}));
         System.out.println(stripUrlParams("https://edabit.com", new String[]{"b"}));
 
     }
@@ -1135,8 +1134,8 @@ public class ExerciseJava {
     // task: Create a function that takes a number steps as an argument and returns the amount of rectangles
     // you can count in a matrix.
     public static int rectangles(int step) {
-        double function = (step*(step+1))/2;
-        double total = Math.pow(function,2);
+        double function = (step * (step + 1)) / 2;
+        double total = Math.pow(function, 2);
 
         return (int) Math.round(total);
     }
@@ -1153,17 +1152,17 @@ public class ExerciseJava {
         char[] letters = phrase.toCharArray();
         boolean endYell = true;
         int yellCount = 0;
-        for (int i = letters.length-1; i > 0; i--){
-            if (letters[i] == '!' || letters[i] == '?' && endYell){
+        for (int i = letters.length - 1; i > 0; i--) {
+            if (letters[i] == '!' || letters[i] == '?' && endYell) {
                 yellCount++;
-            }else{
+            } else {
                 endYell = false;
             }
         }
-        if (yellCount != 0){
+        if (yellCount != 0) {
             yellCount--;
         }
-        char[] edit = new char[letters.length-yellCount];
+        char[] edit = new char[letters.length - yellCount];
         System.arraycopy(letters, 0, edit, 0, edit.length);
         return new String(edit);
     }
@@ -1178,7 +1177,7 @@ public class ExerciseJava {
     // (see examples #1 and #2 above).
     public static String stripUrlParams(String url, String[] paramsToStrip) {
         int queryIndexStart = url.indexOf('?');
-        if (queryIndexStart == -1){
+        if (queryIndexStart == -1) {
             return url;
         }
         String[] variableName = new String[10];
@@ -1188,44 +1187,41 @@ public class ExerciseJava {
         boolean duplicate = false;
         boolean nameVsValue = true;
         String variables = url.substring(queryIndexStart);
-        if (variables.length() == 1){
-            return url.substring(0,queryIndexStart);
+        if (variables.length() == 1) {
+            return url.substring(0, queryIndexStart);
         }
         String variable = "";
 //        quicker way with for substrings but will use for loop for now
-        for (int i = 1; i < variables.length(); i++){
-            if (variables.charAt(i) == '='){
-                if (getIndexOf(variableName,variable) != -1 && getIndexOf(variableName,variable) != nameIndex){
-                    dupIndex = getIndexOf(variableName,variable);
+        for (int i = 1; i < variables.length(); i++) {
+            if (variables.charAt(i) == '=') {
+                if (getIndexOf(variableName, variable) != -1 && getIndexOf(variableName, variable) != nameIndex) {
+                    dupIndex = getIndexOf(variableName, variable);
                     variable = "";
                     duplicate = true;
-                }
-                else {
+                } else {
                     variableName[nameIndex] = variable;
                     variable = "";
                 }
                 nameVsValue = false;
-            }else if (variables.charAt(i) == '&'){
-                if (duplicate){
+            } else if (variables.charAt(i) == '&') {
+                if (duplicate) {
                     variableValue[dupIndex] = variable;
                     duplicate = false;
-                }
-                else {
+                } else {
                     variableValue[nameIndex] = variable;
                     variable = "";
                     nameIndex++;
                 }
                 nameVsValue = true;
-            }else {
+            } else {
                 variable = variable + variables.charAt(i);
 
             }
-            if (i == variables.length()-1 && !nameVsValue){
-                if (duplicate){
+            if (i == variables.length() - 1 && !nameVsValue) {
+                if (duplicate) {
                     variableValue[dupIndex] = variable;
                     duplicate = false;
-                }
-                else {
+                } else {
                     variableValue[nameIndex] = variable;
                     variable = "";
                     nameIndex++;
@@ -1234,29 +1230,29 @@ public class ExerciseJava {
 
         }
         int variableCount = 0;
-        for (String var: variableName) {
-            if (var != null){
+        for (String var : variableName) {
+            if (var != null) {
                 variableCount++;
             }
         }
-        if (paramsToStrip != null){
-            for (String cut: paramsToStrip) {
-                if (getIndexOf(variableName,cut) != -1){
+        if (paramsToStrip != null) {
+            for (String cut : paramsToStrip) {
+                if (getIndexOf(variableName, cut) != -1) {
                     variableCount--;
                 }
             }
         }
 
-        if (variableCount == 0){
-            return url.substring(0,queryIndexStart);
+        if (variableCount == 0) {
+            return url.substring(0, queryIndexStart);
         }
 
 //        rebuild URL
         boolean multiVar = false;
-        String urlReformed = url.substring(0,queryIndexStart+1);
-        for (int i = 0; i < variableName.length; i++){
-            if (variableName[i] != null && (paramsToStrip == null || getIndexOf(paramsToStrip,variableName[i]) == -1)){
-                if (multiVar){
+        String urlReformed = url.substring(0, queryIndexStart + 1);
+        for (int i = 0; i < variableName.length; i++) {
+            if (variableName[i] != null && (paramsToStrip == null || getIndexOf(paramsToStrip, variableName[i]) == -1)) {
+                if (multiVar) {
                     urlReformed = urlReformed + "&";
                 }
                 urlReformed = urlReformed + variableName[i] + "=" + variableValue[i];
