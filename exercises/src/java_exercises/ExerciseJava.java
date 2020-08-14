@@ -1,6 +1,7 @@
 package java_exercises;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 
 public class ExerciseJava {
     public static void main(String[] args) {
@@ -1182,7 +1183,9 @@ public class ExerciseJava {
         }
         String[] variableName = new String[10];
         int nameIndex = 0;
+        int dupIndex = 0;
         String[] variableValue = new String[10];
+        boolean duplicate = false;
         String variables = url.substring(queryIndexStart);
         if (variables.length() == 1){
             return url.substring(0,queryIndexStart);
@@ -1191,22 +1194,62 @@ public class ExerciseJava {
 //        quicker way with for substrings but will use for loop for now
         for (int i = 1; i < variables.length(); i++){
             if (variables.charAt(i) == '='){
-                variableName[nameIndex] = variable;
-                variable = "";
+                if (getIndexOf(variableName,variable) != -1){
+                    dupIndex = getIndexOf(variableName,variable);
+                    duplicate = true;
+                }
+                else {
+                    variableName[nameIndex] = variable;
+                    variable = "";
+                }
             }else if (variables.charAt(i) == '&'){
-                variableValue[nameIndex] = variable;
-                variable = "";
-                nameIndex++;
+                if (duplicate){
+                    variableValue[dupIndex] = variable;
+                    duplicate = false;
+                }
+                else {
+                    variableValue[nameIndex] = variable;
+                    variable = "";
+                    nameIndex++;
+                }
             }else {
                 variable = variable + variables.charAt(i);
             }
         }
+        int variableCount = 0;
+        for (String var: variableName) {
+            if (var != null){
+                variableCount++;
+            }
+        }
+        if (paramsToStrip != null){
+            for (String cut: paramsToStrip) {
+                if (getIndexOf(variableName,cut) != -1){
+                    variableCount--;
+                }
+            }
+        }
 
-//        check for duplacates
+        if (variableCount == 0){
+            return url.substring(0,queryIndexStart);
+        }
 
+//        rebuild URL
+        String urlReformed = url.substring(0,queryIndexStart+1);
+        for (int i = 0; i < variableName.length; i++){
+            if (variableName[i] != null && (paramsToStrip == null || getIndexOf(paramsToStrip,variableName[i]) == -1)){
+                urlReformed = urlReformed + variableName[i] + "=" + variableValue[i] + "&";
+            }
+        }
 
+        return urlReformed;
+    }
 
-        return "";
+    private static int getIndexOf(String[] strings, String item) {
+        for (int i = 0; i < strings.length; i++) {
+            if (item.equals(strings[i])) return i;
+        }
+        return -1;
     }
 
 }
