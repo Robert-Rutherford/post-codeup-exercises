@@ -1,6 +1,8 @@
 package java_exercises;
 
 import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class ExerciseJava {
     public static void main(String[] args) {
@@ -1269,6 +1271,66 @@ public class ExerciseJava {
         }
         return -1;
     }
+
+    // Problem: Next Largest Number
+    // site: https://edabit.com/challenge/EtW6o2eH88C89NYzw
+    // task: Write a function that returns the next largest number that can be created from the same digits as the input.
+    //Notes: If no larger number can be formed, return the number itself.
+    //Bonus: See if you can do this without generating all digit permutations.
+    public static int nextNumber(int num) {
+        String numToString = Integer.toString(num);
+        char[] numbers = numToString.toCharArray();
+        int[] nums = new int[numbers.length];
+        for (int l = 0; l < numbers.length; l++) {
+            nums[l] = Character.getNumericValue(numbers[l]);
+        }
+
+        int i = nums.length - 1;
+        while (i > 0 && nums[i - 1] >= nums[i]) {
+            i--;
+        }
+        // Now i is the head index of the suffix
+
+        // Are we at the last permutation already?
+        if (i <= 0) {
+            return num;
+//            return false;
+        }
+
+        // Let array[i - 1] be the pivot
+        // Find rightmost element that exceeds the pivot
+        int j = nums.length - 1;
+        while (nums[j] <= nums[i - 1]) {
+            j--;
+        }
+        // Now the value array[j] will become the new pivot
+        // Assertion: j >= i
+
+        // Swap the pivot with j
+        int temp = nums[i - 1];
+        nums[i - 1] = nums[j];
+        nums[j] = temp;
+
+        // Reverse the suffix
+        j = nums.length - 1;
+        while (i < j) {
+            temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+            i++;
+            j--;
+        }
+
+        // Successfully computed the next permutation
+//        String result = StringUtils.join(ArrayUtils.toObject(arr), " - ");
+        String result = Arrays.stream(nums)
+                .mapToObj(String::valueOf)
+                .collect(Collectors.joining(""));
+
+        return Integer.parseInt(result);
+    }
+
+
 
 }
 
