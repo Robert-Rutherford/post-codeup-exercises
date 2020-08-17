@@ -191,6 +191,8 @@ public class ExerciseJava {
 //        System.out.println(nextNumber(58943));
 
 //        printFooBarBaz();
+        System.out.println(reverseCharacters("the cat is fat"));
+        System.out.println(reverseCharacters("band camp is great!"));
 
 
     }
@@ -1355,6 +1357,20 @@ public class ExerciseJava {
         }
     }
 
+//    string manip
+    public static String reverseCharacters(String input){
+        String[] words = input.split(" ");
+        for (int i= 0; i < words.length; i++){
+            char[] letters = words[i].toCharArray();
+            char[] reverseLetters = new char[letters.length];
+            for (int j = 0; j < reverseLetters.length; j++){
+                reverseLetters[j] = letters[reverseLetters.length-(j+1)];
+            }
+            words[i] = String.valueOf(reverseLetters);
+        }
+
+        return String.join(" ",words);
+    }
 
 
 
