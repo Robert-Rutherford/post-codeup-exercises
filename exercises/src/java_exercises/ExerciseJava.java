@@ -181,9 +181,14 @@ public class ExerciseJava {
 //        System.out.println(noYelling("Oh my goodness!"));
 //        System.out.println(noYelling("I just cannot believe it."));
 
-        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2", null));
-        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2", new String[]{"b"}));
-        System.out.println(stripUrlParams("https://edabit.com", new String[]{"b"}));
+//        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2", null));
+//        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2", new String[]{"b"}));
+//        System.out.println(stripUrlParams("https://edabit.com", new String[]{"b"}));
+
+        System.out.println(nextNumber(19));
+        System.out.println(nextNumber(3542));
+        System.out.println(nextNumber(5432));
+        System.out.println(nextNumber(58943));
 
     }
 
