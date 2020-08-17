@@ -185,10 +185,13 @@ public class ExerciseJava {
 //        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2", new String[]{"b"}));
 //        System.out.println(stripUrlParams("https://edabit.com", new String[]{"b"}));
 
-        System.out.println(nextNumber(19));
-        System.out.println(nextNumber(3542));
-        System.out.println(nextNumber(5432));
-        System.out.println(nextNumber(58943));
+//        System.out.println(nextNumber(19));
+//        System.out.println(nextNumber(3542));
+//        System.out.println(nextNumber(5432));
+//        System.out.println(nextNumber(58943));
+
+//        printFooBarBaz();
+
 
     }
 
@@ -1334,6 +1337,25 @@ public class ExerciseJava {
 
         return Integer.parseInt(result);
     }
+
+//    personal Challenge
+    public static void printFooBarBaz(){
+//        number for testing limit
+        int end = 100;
+        for (int i = 1; i <= end; i++){
+            if (i % 6 == 0){
+                System.out.println("Baz");
+            }else if (i % 3 == 0){
+                System.out.println("Bar");
+            }else if (i % 2 == 0){
+                System.out.println("Foo");
+            }else {
+                System.out.println(i);
+            }
+        }
+    }
+
+
 
 
 }
