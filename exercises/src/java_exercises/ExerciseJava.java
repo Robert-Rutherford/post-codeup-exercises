@@ -5,6 +5,7 @@ import com.sun.source.tree.BinaryTree;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -1429,9 +1430,6 @@ public class ExerciseJava {
 
 
 
-
-
-
     /* A utility function to print preorder traversal of BST */
     public static void preOrder(Node node) {
         if (node == null) {
@@ -1441,6 +1439,85 @@ public class ExerciseJava {
         preOrder(node.left);
         preOrder(node.right);
     }
+
+
+
+
+
+
+    private boolean filightMovie(int[] movies, int flightLength){
+
+        int target = 0;
+
+//        keys length;
+//        value arrayindex;
+        HashMap<Integer, Integer> movieMap = new HashMap<Integer,Integer>();
+//        for (int k = 0; k < movies.length; k++){
+//            movieMap.put(movies[k],k);
+//        }
+        for (int i =0; i < movies.length; i++){
+            target = flightLength - movies[i];
+            if (movieMap.get(target) != null){
+                return true;
+            }
+            movieMap.put(movies[i],i);
+
+//            for (int j = i+1; j < movies.length; j++){
+//                if (target == movies[j]){
+//                    return true;
+//                }
+//
+//            }
+
+        }
+
+        return false;
+    }
+
+
+
+
+    private boolean palidromeSort(String letters){
+        HashMap<Character,Integer> counter = new HashMap<>();
+
+        for (int i = 0; i < letters.length(); i++){
+            char letter= letters.charAt(i);
+            if (counter.get(letter) == null){
+                counter.put(letter,1);
+            }
+            else {
+                counter.put(letter, (counter.get(letter) + 1));
+            }
+        }
+        int oddCount = 0;
+        for (Map.Entry<Character, Integer> group: counter.entrySet()) {
+            if (group.getValue() % 2 != 0){
+                oddCount++;
+            }
+        }
+
+        return oddCount <= 1;
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1456,6 +1533,11 @@ class Node{
         this.right = r;
     }
 }
+
+
+
+
+
 
 
 
