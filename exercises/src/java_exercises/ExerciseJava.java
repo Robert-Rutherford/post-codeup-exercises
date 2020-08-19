@@ -1,7 +1,11 @@
 package java_exercises;
 
+import com.sun.source.tree.BinaryTree;
+
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ExerciseJava {
@@ -191,8 +195,22 @@ public class ExerciseJava {
 //        System.out.println(nextNumber(58943));
 
 //        printFooBarBaz();
-        System.out.println(reverseCharacters("the cat is fat"));
-        System.out.println(reverseCharacters("band camp is great!"));
+//        System.out.println(reverseCharacters("the cat is fat"));
+//        System.out.println(reverseCharacters("band camp is great!"));
+
+
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        arr.add(1);
+        arr.add(2);
+        arr.add(3);
+        arr.add(4);
+        arr.add(5);
+        arr.add(6);
+        arr.add(7);
+        int n = arr.size();
+        Node root = balancedTree(arr);
+        System.out.println("Preorder traversal of constructed BST");
+        preOrder(root);
 
 
     }
@@ -1341,6 +1359,7 @@ public class ExerciseJava {
     }
 
 //    personal Challenge
+
     public static void printFooBarBaz(){
 //        number for testing limit
         int end = 100;
@@ -1357,7 +1376,14 @@ public class ExerciseJava {
         }
     }
 
-//    string manip
+//
+
+
+
+
+
+
+
     public static String reverseCharacters(String input){
         String[] words = input.split(" ");
         for (int i= 0; i < words.length; i++){
@@ -1374,6 +1400,61 @@ public class ExerciseJava {
 
 
 
+
+
+
+
+//    binary tree
+    public static Node balancedTree(ArrayList<Integer> inputList){
+        int mid = (inputList.size()) / 2;
+
+        if (inputList.size() == 0) {
+            return null;
+        }
+
+        ArrayList<Integer> left = new ArrayList<Integer>();
+        for (int i = 0; i < mid; i++){
+            left.add(inputList.get(i));
+        }
+        ArrayList<Integer> right = new ArrayList<Integer>();
+        for (int j = mid+1; j < inputList.size(); j++){
+            right.add(inputList.get(j));
+        }
+
+        return new Node(inputList.get(mid),balancedTree(left),balancedTree(right));
+
+    }
+
+
+
+
+
+
+
+
+    /* A utility function to print preorder traversal of BST */
+    public static void preOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.value + " ");
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+
+
+
+}
+
+class Node{
+    public int value;
+    public Node left;
+    public Node right;
+    public Node(int v, Node l, Node r) {
+        this.value = v;
+        this.left = l;
+        this.right = r;
+    }
 }
 
 
