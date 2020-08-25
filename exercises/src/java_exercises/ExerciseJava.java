@@ -212,6 +212,12 @@ public class ExerciseJava {
 //        Node root = balancedTree(arr);
 //        System.out.println("Preorder traversal of constructed BST");
 //        preOrder(root);
+        int[] arr = {1, 1, 2, -2, 5, 2, 4, 4, -1, -2, 5};
+        System.out.println(findOdd(arr));
+        arr = new int[] {20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5};
+        System.out.println(findOdd(arr));
+        arr = new int[] {10};
+        System.out.println(findOdd(arr));
 
 
     }
@@ -1358,6 +1364,31 @@ public class ExerciseJava {
 
         return Integer.parseInt(result);
     }
+
+
+    // Problem: Find the Odd Integer
+    // site: https://edabit.com/challenge/8SHAyg8kdX8y72S3z
+    // task: Create a function that takes an array and finds the integer which appears an odd number of times.
+    public static int findOdd(int[] arr) {
+        HashMap<Integer, Integer> counter = new HashMap<>();
+
+        for (int number: arr) {
+            if (counter.get(number) == null){
+                counter.put(number, 1);
+            }else {
+                counter.put(number,(counter.get(number)+1));
+            }
+        }
+
+        for (Map.Entry<Integer, Integer> item: counter.entrySet()) {
+            if (item.getValue() % 2 != 0){
+                return item.getKey();
+            }
+        }
+        return 0;
+    }
+
+
 
 }
 
